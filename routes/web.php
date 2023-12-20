@@ -29,9 +29,10 @@ Route::get('/contact', function () {
 
 Route::resource('story', HistoireController::class);
 
-Route::resource('users',\App\Http\Controllers\UserController::class);
+Route::resource('story', HistoireController::class);
 
 Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('story.upload');
 
+Route::get('/history/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('history.showChapter');
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');

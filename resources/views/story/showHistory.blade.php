@@ -6,6 +6,7 @@
         <div>
             <img class="image" src="{{url('storage/'.$histoire->photo)}}" alt="image">
         </div>
+        <a href="{{route('history.showChapter',['id'=> $histoire->id,'chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
         <div>
             @if($action == 'delete')
                 <form action="{{route('story.destroy',$histoire->id)}}" method="POST">

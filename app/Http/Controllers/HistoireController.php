@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use App\Models\Histoire;
-use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -104,6 +103,57 @@ class HistoireController extends Controller
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
         return view('history.showHistory', ['titre' => $titre, 'histoire' => $histoire,
             'action' => $request->get('action', 'show')]);
+    }
+
+    public function edit(string $id)
+    {
+        $histoire = Histoire::findOrFail($id);
+        return view('history.editHistory', ['titre' => "Modification d'une histoire", 'histoire' => $histoire]);
+    }
+
+    public function updateChapitre(Request $request, string $id) {
+        if ($request->input('action', 'Valide') == "Annule") {
+            return redirect()->route('scenes.index', ['titre' => "Liste des scenes"])
+                ->with('type', 'warning')
+                ->with('msg', 'Modification annulée');
+        }
+        $histoire = Histoire::find($id);
+
+        // validation des données de la requête
+        $this->validate(
+            $request,
+            [
+                'titrecourt' => 'required',
+                'texte' => 'required',
+                'media' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'active' => 'required',
+                'genre_id' =>' required',
+            ],
+            [
+                'required' => 'Le champ :attribute est obligatoire'
+            ]
+        );
+
+        // code exécuté uniquement si les données sont validées
+        // sinon un message d'erreur est renvoyé vers l'utilisateur
+
+        // préparation de l'enregistrement à stocker dans la base de données
+
+        $histoire->titre = $request->titre;
+        $histoire->pitch = $request->pitch;
+        $histoire->active = $request->active;
+        $photo = $request->file('photo')->store('images', 'public');
+        $histoire->photo = $photo;
+        $histoire->user_id = Auth::id();
+        $histoire->genre_id = $request->input('genre_id');
+
+        // insertion de l'enregistrement dans la base de données
+        $histoire->update();
+
+        // redirection vers la page qui affiche la liste des tâches
+        return view('history.editHistory', ['titre' => "Edit de l'histoire"])
+            ->with('type', 'primary')
+            ->with('msg', 'Scene modifiée avec succès');
     }
 
 }

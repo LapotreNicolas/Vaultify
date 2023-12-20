@@ -23,6 +23,11 @@
                         <button>
                             <a href="{{route('history.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
                         </button>
+                        @can('update',$histoire)
+                            <button>
+                                <a href="{{route('history.edit', ['history'=>$histoire->id])}}">EDIT</a>
+                            </button>
+                        @endcan
                     </div>
                 @endforeach
             </div>

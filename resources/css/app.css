@@ -12,7 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
     position: relative;
     --gray: #282828;
-    --padding-header: 3em;
+    --padding-header: 1em;
 }
 
 main {
@@ -50,7 +50,7 @@ header>div>a{
     margin: 0 2em;
     text-decoration: none;
     color: white;
-    font-size: 1.75em;
+    font-size: 1.5em;
 }
 
 /* footer */
@@ -114,7 +114,7 @@ footer>div>p{
 
 .homeTextImg{
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
@@ -123,14 +123,14 @@ footer>div>p{
 }
 
 .homeTextImg>h1{
-    font-size: 15em;
+    font-size: 10em;
     font-family: 'Jomhuria', serif;
     font-weight: inherit;
     margin: 0;
 }
 
 .homeTextImg>h2{
-    font-size: 2em;
+    font-size: 1.25em;
     font-weight: 500;
 }
 
@@ -141,12 +141,12 @@ footer>div>p{
 
 .homeTextImg>h3{
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.25em;
     line-height: 1.75em;
 }
 
 .homeTextImg>a{
-    font-size: 8em;
+    font-size: 6em;
     position: absolute;
     bottom: -35%;
     left: 50%;

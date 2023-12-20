@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HistoireController;
+use App\Http\Controllers\EquipeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -32,3 +33,5 @@ Route::get('/test-vite', function () {
 Route::resource('story', HistoireController::class);
 
 
+
+Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');

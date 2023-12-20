@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HistoireController;
 use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\WriterController;
@@ -32,6 +33,8 @@ Route::resource('story', HistoireController::class);
 Route::resource('story', HistoireController::class);
 
 Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('story.upload');
+
+Route::resource('users', UserController::class)->only('show');
 
 Route::get('/history/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('history.showChapter');
 

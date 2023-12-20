@@ -102,7 +102,7 @@ class HistoireController extends Controller
     {
         $histoire = Histoire::find($id);
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('history.showHistory', ['titre' => $titre, 'histoire' => $histoire,
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire,
             'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
     }
 

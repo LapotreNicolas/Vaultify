@@ -6,7 +6,7 @@
         @if(!empty($histoires))
             {{--LES COMMENTAIRES SONT POUR LE FILTRAGE MAIS C'EST PAS LE BON--}}
             <h4>Filtrage par genre</h4>
-            <form action="{{route('history.index')}}" method="get">
+            <form action="{{route('story.index')}}" method="get">
                 <select name="nom_genre">
                     <option value="All" @if($genre == 'All') selected @endif>-- Tout genre --</option>
                     @foreach($genres_possibles as $gp)

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name("index");
 
+Route::get('/accueil', [HomeController::class, 'accueil'])->name('accueil');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
@@ -24,4 +28,7 @@ Route::get('/contact', function () {
 Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
+
+Route::resource('history', HistoireController::class);
+
 

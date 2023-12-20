@@ -39,3 +39,5 @@ Route::resource('users', UserController::class)->only('show');
 Route::get('/history/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('history.showChapter');
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
+
+Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis');

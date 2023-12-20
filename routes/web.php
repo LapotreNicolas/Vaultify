@@ -31,4 +31,4 @@ Route::get('/test-vite', function () {
 
 Route::resource('history', HistoireController::class);
 
-
+Route::get('/history/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('history.showChapter');

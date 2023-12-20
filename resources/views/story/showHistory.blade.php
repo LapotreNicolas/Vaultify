@@ -8,7 +8,7 @@
         </div>
         <div>
             @if($action == 'delete')
-                <form action="{{route('history.destroy',$histoire->id)}}" method="POST">
+                <form action="{{route('story.destroy',$histoire->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div>
@@ -18,7 +18,7 @@
                 </form>
             @else
                 <div>
-                    <a href="{{route('history.index')}}">Retour à la liste</a>
+                    <a href="{{route('story.index')}}">Retour à la liste</a>
                 </div>
             @endif
         </div>

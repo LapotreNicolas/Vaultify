@@ -6,11 +6,11 @@
         @if(!empty($histoires))
             {{--LES COMMENTAIRES SONT POUR LE FILTRAGE MAIS C'EST PAS LE BON--}}
             <h4>Filtrage par genre</h4>
-            <form action="{{route('history.index')}}" method="get">
-                <select name="cat">
-                    <option value="All" @if($cat == 'All') selected @endif>-- Tout genre --</option>
-                    @foreach($genreFiltres as $genreFiltre)
-                        <option value="{{$genreFiltre}}" @if($cat == $genreFiltre) selected @endif>{{$genreFiltre}}</option>
+            <form action="{{route('story.index')}}" method="get">
+                <select name="nom_genre">
+                    <option value="All" @if($genre == 'All') selected @endif>-- Tout genre --</option>
+                    @foreach($genres_possibles as $gp)
+                        <option value="{{$gp}}" @if($genre == $gp) selected @endif>{{$gp}}</option>
                     @endforeach
                 </select>
                 <input type="submit" value="OK">
@@ -19,9 +19,12 @@
                 @foreach($histoires as $histoire)
                     <div>{{$histoire->titre}}</div>
                     <div>{{$histoire->pitch}}</div>
+                    <a href="{{route('users.show',$histoire->user->id)}}">
+                        <div>{{$histoire->user->name}}</div>
+                    </a>
                     <div>
                         <button>
-                            <a href="{{route('history.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
+                            <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
                         </button>
                     </div>
                 @endforeach

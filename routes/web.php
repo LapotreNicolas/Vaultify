@@ -3,6 +3,7 @@
 use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use \App\Http\Controllers\WriterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,5 @@ Route::get('/test-vite', function () {
 })->name("test-vite");
 
 Route::resource('history', HistoireController::class);
-
+Route::post('/history/{id}/upload', [HistoireController::class, 'upload'])->name('history.upload');
 

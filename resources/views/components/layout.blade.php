@@ -13,9 +13,9 @@
 </head>
 <x-header></x-header>
 <body>
-<main class="main-container">
-    {{$slot}}
-</main>
-<footer>IUT de Lens</footer>
+    <main class="main-container">
+        {{$slot}}
+    </main>
+    <footer>IUT de Lens</footer>
 </body>
 </html>

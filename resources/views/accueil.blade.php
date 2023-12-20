@@ -1,4 +1,4 @@
-<x-layout :titre="$titre">
+<x-layout titre="titre">
     <p>
         wazaaaaaaaaaa
     </p>

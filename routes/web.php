@@ -29,8 +29,9 @@ Route::get('/contact', function () {
 
 Route::resource('story', HistoireController::class);
 
-Route::resource('history', HistoireController::class);
-Route::post('/history/{id}/upload', [HistoireController::class, 'upload'])->name('history.upload');
+Route::resource('users',\App\Http\Controllers\UserController::class);
+
+Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('story.upload');
 
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');

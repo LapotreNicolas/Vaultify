@@ -7,10 +7,10 @@
             {{--LES COMMENTAIRES SONT POUR LE FILTRAGE MAIS C'EST PAS LE BON--}}
             <h4>Filtrage par genre</h4>
             <form action="{{route('history.index')}}" method="get">
-                <select name="cat">
-                    <option value="All" @if($cat == 'All') selected @endif>-- Tout genre --</option>
-                    @foreach($genreFiltres as $genreFiltre)
-                        <option value="{{$genreFiltre}}" @if($cat == $genreFiltre) selected @endif>{{$genreFiltre}}</option>
+                <select name="nom_genre">
+                    <option value="All" @if($genre == 'All') selected @endif>-- Tout genre --</option>
+                    @foreach($genres_possibles as $gp)
+                        <option value="{{$gp}}" @if($genre == $gp) selected @endif>{{$gp}}</option>
                     @endforeach
                 </select>
                 <input type="submit" value="OK">

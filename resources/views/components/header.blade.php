@@ -1,7 +1,7 @@
 <div>Ma super application</div>
 <div>
     <button><a href="{{route('accueil')}}">🏛 Accueil</a></button>
-    <button><a href="{{route('history.index')}}">Accès aux histoires</a></button>
+    <button><a href="{{route('story.index')}}">Accès aux histoires</a></button>
     <button><a href="{{route('test-vite')}}">Test Vite</a></button>
         <button><a href="{{route('contact')}}">Contact</a></button>
 </div>

@@ -14,32 +14,37 @@ class HistoireController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request, $nom_genre = null)
     {
-        $cat = $request->input('cat', null);
-        $value = $request->cookie('cat', null);
 
-        if (!isset($cat)) {
-            if (!isset($value)) {
+        $nom_genre = $request->get('nom_genre');
+        $remember = $request->cookie('nom_genre', null);
+
+        if (!isset($nom_genre)) {
+
+            if (!isset($remember)) {
                 $histoire = Histoire::all();
-                $cat = 'All';
-                Cookie::expire('cat');
+                $nom_genre = 'All';
+                Cookie::expire('nom_genre');
             } else {
-                $histoire = Histoire::where('titre', $value)->get();
-                $cat = $value;
+                $genre = Genre::where('label',$remember)->get()[0]['id'];
+                $histoire = Histoire::where('genre_id', $genre)->get();
+                $nom_genre = $remember;
 
-                Cookie::queue('cat', $cat, 10);            }
+                Cookie::queue('nom_genre', $nom_genre, 10);            }
         } else {
-            if ($cat == 'All') {
+
+            if ($nom_genre == 'All') {
                 $histoire = Histoire::all();
-                Cookie::expire('cat');
+                Cookie::expire('nom_genre');
             } else {
-                $histoire = Histoire::where('titre', $cat)->get();
-                Cookie::queue('cat', $cat, 10);
+                $genre = Genre::where('label',$nom_genre)->get()[0]['id'];
+                $histoire = Histoire::where('genre_id', $genre)->get();
+                Cookie::queue('nom_genre', $nom_genre, 10);
             }
         }
-        $genre = Histoire::distinct('titre')->pluck('titre');
-        return view('history.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'cat' => $cat, 'genreFiltres' => $genre]);
+        $genre_possibles = Genre::distinct('label')->pluck('label');
+        return view('history.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'genre' => $nom_genre, 'genres_possibles' => $genre_possibles]);
     }
 
     public function create()

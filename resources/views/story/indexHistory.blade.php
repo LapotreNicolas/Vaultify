@@ -17,6 +17,7 @@
             </form>
             <div>
                 @foreach($histoires as $histoire)
+                    @if ($histoire->active>0)
                     <div>{{$histoire->titre}}</div>
                     <div>{{$histoire->pitch}}</div>
                     <a href="{{route('users.show',$histoire->user->id)}}">
@@ -27,10 +28,11 @@
                             <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
                         </button>
                     </div>
+                    @endif
                 @endforeach
             </div>
         @else
-            <h3>Là y a pas d'histoire</h3>
+            <h3>Là, il n'y a pas d'histoire</h3>
         @endif
     </div>
 </x-layout>

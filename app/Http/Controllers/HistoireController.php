@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Chapitre;
 use App\Models\Histoire;
-use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -44,13 +44,13 @@ class HistoireController extends Controller
             }
         }
         $genre_possibles = Genre::distinct('label')->pluck('label');
-        return view('history.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'genre' => $nom_genre, 'genres_possibles' => $genre_possibles]);
+        return view('story.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'genre' => $nom_genre, 'genres_possibles' => $genre_possibles]);
     }
 
     public function create()
     {
         $genres = Genre::all();
-        return view('history.createHistory', ['genres' => $genres]);
+        return view('story.createHistory', ['genres' => $genres]);
     }
 
     /**
@@ -89,7 +89,7 @@ class HistoireController extends Controller
             $histoire->save();
 
             // redirection vers la page qui affiche la liste des tâches
-            return redirect()->route('history.index')
+            return redirect()->route('story.index')
                 ->with('type', 'primary')
                 ->with('msg', 'Scene ajoutée avec succès');
         }
@@ -102,8 +102,18 @@ class HistoireController extends Controller
     {
         $histoire = Histoire::find($id);
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('history.showHistory', ['titre' => $titre, 'histoire' => $histoire,
-            'action' => $request->get('action', 'show')]);
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire,
+            'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
+    }
+
+
+    // Gestion des Chapitres
+
+    public function showChapter(Request $request, $id, $chapter_id)
+    {
+        $chapitre = Chapitre::find($chapter_id);
+        $suivants = $chapitre->suivants;
+        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
     }
 
 }

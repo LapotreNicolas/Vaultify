@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
 
-    @vite(['resources/css/test-vite.css', 'resources/js/test-vite.js'])
+    @vite(['resources/css/test-vite.css', 'resources/css/app.css', 'resources/css/normalize.css', 'resources/js/test-vite.js'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <x-header></x-header>
@@ -16,6 +16,6 @@
     <main class="main-container">
         {{$slot}}
     </main>
-    <footer>IUT de Lens</footer>
+    <x-footer></x-footer>
 </body>
 </html>

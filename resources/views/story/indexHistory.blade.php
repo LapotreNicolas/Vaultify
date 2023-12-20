@@ -19,9 +19,12 @@
                 @foreach($histoires as $histoire)
                     <div>{{$histoire->titre}}</div>
                     <div>{{$histoire->pitch}}</div>
+                    <a href="{{route('users.show',$histoire->user->id)}}">
+                        <div>{{$histoire->user->name}}</div>
+                    </a>
                     <div>
                         <button>
-                            <a href="{{route('history.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
+                            <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
                         </button>
                     </div>
                 @endforeach

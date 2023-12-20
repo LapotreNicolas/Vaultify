@@ -13,7 +13,7 @@
     @endguest
     @auth
         <div>
-            <a href="{{route('history.create')}}">Créer une histoire</a>
+            <a href="{{route('story.create')}}">Créer une histoire</a>
             {{Auth::user()->name}}
             <a href="{{route("logout")}}"
             onclick="document.getElementById('logout').submit(); return false;">Logout</a>

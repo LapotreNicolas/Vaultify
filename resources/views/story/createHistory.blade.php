@@ -11,7 +11,7 @@ messages d'erreurs dans la saisie du formulaire.
             </ul>
         </div>
     @endif
-    <form action="{{route('history.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('story.store')}}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div>
             <h3>Création d'une histoire</h3>

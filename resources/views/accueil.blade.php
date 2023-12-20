@@ -6,8 +6,12 @@
             <h2>Héros, Monstres, Trésors, Aventure!</h2>
             <img src="images/ornament1.svg" alt="ornament ">
             <h3>Explorez un monde où les légendes prennent vie, où les dragons règnent en maîtres et où des héros intrépides se dressent contre l'obscurité. Préparez-vous à être transporté dans un univers où l'héritage de chaque dragon résonne à travers les âges</h3>
-            <a href="#"><i class='bx bx-down-arrow-alt'></i></a>
+        </div>
+        <a href="#homeContent"><i class='bx bx-down-arrow-alt'></i></a>
+    </div>
+    <div id="homeContent">
+        <div class="container">
+
         </div>
     </div>
-    <div></div>
 </x-layout>

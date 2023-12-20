@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Chapitre;
 use App\Models\Histoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,7 +103,17 @@ class HistoireController extends Controller
         $histoire = Histoire::find($id);
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
         return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire,
-            'action' => $request->get('action', 'show')]);
+            'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
+    }
+
+
+    // Gestion des Chapitres
+
+    public function showChapter(Request $request, $id, $chapter_id)
+    {
+        $chapitre = Chapitre::find($chapter_id);
+        $suivants = $chapitre->suivants;
+        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
     }
 
 }

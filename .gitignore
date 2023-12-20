@@ -216,6 +216,7 @@ public_html/hot
 
 storage/*.key
 /.vagrant
+package-lock.json
 
 ### PhpStorm+all template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider

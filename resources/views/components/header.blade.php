@@ -1,14 +1,13 @@
-<header>
-    <div>Ma super application</div>
+<header {{ Route::currentRouteName() === "index" || Route::currentRouteName() === "accueil" ? 'class=absHeader' : '' }}>
     <div>
-        <a href="{{route('accueil')}}">🏛 Accueil</a>
         <a href="{{route('story.index')}}">Histoires</a>
         <a href="{{route('contact')}}">Contact</a>
     </div>
+    <a href="{{route('accueil')}}"><img src="{{asset("images/logo.svg")}}" alt="logo" class="imgHeader"></a>
     @guest
         <div>
-            <a href="{{route('register')}}">📥 Enregistrement</a>
-            <a href="{{route('login')}}">😎 Connexion</a>
+            <a href="{{route('register')}}">S'inscrire</a>
+            <a href="{{route('login')}}">Connexion</a>
         </div>
     @endguest
     @auth

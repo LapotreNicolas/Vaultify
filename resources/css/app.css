@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Poppins:wght@100;300;500;600&display=swap');
+
 html {
     position: relative;
     min-height: 100%;
 }
 body {
     /* Margin bottom by footer height */
-    --gray: #282828;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    --gray: #282828;
+    --padding-header: 3em;
 }
 
 main {
@@ -20,11 +25,41 @@ main {
     max-width: 1100px;
 }
 
+/* header */
+
+header{
+    background-color: rgba(0, 0, 0, 0.70);
+    padding: 1em var(--padding-header) .5em var(--padding-header);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 31px 33px rgba(0, 0, 0, 0.70);
+}
+
+.absHeader{
+    position: absolute;
+    width: calc(100% - 2 * var(--padding-header));
+    z-index: 1;
+}
+
+.imgHeader{
+    height: 6em;
+}
+
+header>div>a{
+    margin: 0 2em;
+    text-decoration: none;
+    color: white;
+    font-size: 1.75em;
+}
+
+/* footer */
+
 footer{
     display: flex;
     margin-top: auto;
     background-color: var(--gray);
-    padding: 2em 0;
+    padding: 2em 0 .5em 0;
 }
 
 footer>div{
@@ -35,7 +70,8 @@ footer>div{
 .flexFooter{
     display: flex;
     color: white;
-    justify-content: space-between;    
+    justify-content: space-between;
+    margin-bottom: 1em;
 }
 
 .flexFooter>div{
@@ -46,8 +82,93 @@ footer>div{
 .flexFooter>div>a{
     text-decoration: none;
     color: white;
+    font-weight: 300;
+    margin: .25em 0;
 }
 
 .logoFooter{
     height: 10em;
+}
+
+footer>div>p{
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-weight: 100;
+    font-size: 1.25em;
+}
+
+
+/* Home */
+
+.homeImg{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.homeImg>img{
+    height: auto;
+    min-width: 100%;
+}
+
+.homeTextImg{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    color: white;
+    text-align: center;
+}
+
+.homeTextImg>h1{
+    font-size: 15em;
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    margin: 0;
+}
+
+.homeTextImg>h2{
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.homeTextImg>img{
+    width: 70%;
+    margin: 2em 0;
+}
+
+.homeTextImg>h3{
+    font-weight: 500;
+    font-size: 1.5em;
+    line-height: 1.75em;
+}
+
+.homeTextImg>a{
+    font-size: 8em;
+    position: absolute;
+    bottom: -35%;
+    left: 50%;
+    border: 5px solid white;
+    padding: .15em;
+    border-radius: 1em;
+    animation: identifier 2s infinite ease-in-out;
+    margin: 0;
+    color: white;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+}
+
+@keyframes identifier {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    50%{
+        transform: translate(-50%, -.25em);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
 }

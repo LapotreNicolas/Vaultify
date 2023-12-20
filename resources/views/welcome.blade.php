@@ -1,10 +1,10 @@
-@extends("templates.app")
-
-@section('content')
-    <div style="display: flex;align-items: center; justify-content: center">
-        <div>
-            <b>Le marathon du WEB 2023 !!!</b>
+<x-layout>
+    @section('content')
+        <div style="display: flex;align-items: center; justify-content: center">
+            <div>
+                <b>Le marathon du WEB 2023 !!!</b>
+            </div>
         </div>
-    </div>
 
-@endsection
+    @endsection
+</x-layout>

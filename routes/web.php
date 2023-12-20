@@ -27,10 +27,6 @@ Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
 
-Route::get('/test-vite', function () {
-    return view('test-vite');
-})->name("test-vite");
-
 Route::resource('story', HistoireController::class);
 
 Route::resource('history', HistoireController::class);

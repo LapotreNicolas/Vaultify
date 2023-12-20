@@ -1,10 +1,11 @@
 <x-layout titre="Affiche une histoire">
     <div>
-        <div>{{$histoire->titre}}</div>
-        <div>{{$histoire->pitch}}</div>
-{{--        <div>--}}
-{{--            <img class="image" src="{{url('storage/'.$histoire->url_media)}}" alt="image tâche">--}}
-{{--        </div>--}}
+        <div>titre : {{$histoire->titre}}</div>
+        <div>pitch : {{$histoire->pitch}}</div>
+        <div>genre : {{$histoire->genre['label']}}</div>
+        <div>
+            <img class="image" src="{{url('storage/'.$histoire->photo)}}" alt="image">
+        </div>
         <div>
             @if($action == 'delete')
                 <form action="{{route('history.destroy',$histoire->id)}}" method="POST">

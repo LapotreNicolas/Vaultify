@@ -13,6 +13,7 @@ body {
     position: relative;
     --gray: #282828;
     --black: #0E0E0E;
+    --gold: #E2B356;
     --padding-header: 2.5vh;
 }
 
@@ -24,6 +25,7 @@ main {
 
 .container{
     max-width: 1100px;
+    margin: 0 auto;
 }
 
 /* header */
@@ -147,11 +149,11 @@ footer>div>p{
 }
 
 .homeImg>a{
-    font-size: 12vh;
+    font-size: 10vh;
     position: absolute;
-    bottom: 1%;
+    bottom: 4%;
     left: 50%;
-    border: 5px solid white;
+    border: .6vh solid white;
     padding: .15em;
     border-radius: 1em;
     animation: identifier 2s infinite ease-in-out;
@@ -175,6 +177,135 @@ footer>div>p{
 }
 
 
-.homeContent{
+#homeContent{
     background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: auto;
+}
+
+.titleSection{
+    font-family: Matura MT Script Capitals;
+    font-weight: inherit;
+    position: relative;
+    margin: 6vh 0;
+    font-size: 3vh;
+    text-align: center;
+}
+
+.titleSection:before, .titleSection:after{
+    content: "";
+    width: 100%;
+    position: absolute;
+    width: 100%;
+    background-image: url("/images/ornament2.svg");
+    background-size: cover;
+    height: 100%;
+    left: 0 ;
+}
+
+.titleSection:before{
+    top: -135%;
+}
+
+.titleSection:after{
+    bottom: -120%;
+    rotate: 180deg;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5vh;
+    margin-bottom: 10vh;
+}
+
+.card{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    padding: 3vh;
+}
+
+.card:before, .card:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+.titleCard{
+    display: flex;
+    align-items: center;
+    padding: 0 0 2vh 0;
+    border-bottom: .2vh solid white;
+}
+
+.titleCard>img{
+    width: 8vh;
+    height: 100%;
+    border-radius: 10em;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+}
+
+.titleCard>.headCard{
+    margin-left: 2vh;
+}
+
+.titleCard>.headCard>*{
+    margin: 0;
+}
+
+.titleCard>.headCard>h4{
+    font-weight: 300;
+    color: rgb(206, 206, 206);
+    margin: 1vh 0 0 0;
+}
+
+.contentCard{
+    padding: 2vh 1vh;
+    border-bottom: .2vh solid white;
+}
+
+.contentCard>p{
+    text-align: left;
+    margin: 0;
+    font-weight: 300;
+    font-size: 2vh;
+}
+
+.buttonCard{
+    padding: 2vh 1vh 0 1vh;
+}
+
+.buttonCard>a{
+    display: flex;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    font-size: 3vh;
+    text-decoration: none;
+    color: white;
+    border: .3vh solid white;
+    padding: 1vh 3vh;
+}
+
+.buttonCard>a:hover{
+    background-color: white;
+    color: black;
 }

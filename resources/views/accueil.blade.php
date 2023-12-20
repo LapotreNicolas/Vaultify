@@ -11,7 +11,56 @@
     </div>
     <div id="homeContent">
         <div class="container">
-
+            <div class="discoverHistory">
+                <h2 class="titleSection">Découvrir les histoires</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </x-layout>

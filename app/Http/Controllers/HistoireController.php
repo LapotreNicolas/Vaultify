@@ -96,10 +96,8 @@ class HistoireController extends Controller
         $this->validate(
             $request,
             [
-                'titre' => 'required',
                 'titrecourt' => 'required',
                 'texte' => 'required',
-                'question' =>' required',
             ]
         );
 

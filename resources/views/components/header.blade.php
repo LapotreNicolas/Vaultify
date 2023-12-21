@@ -3,7 +3,7 @@
         <a href="{{route('story.index')}}">Histoires</a>
         <a href="{{route('contact')}}">Contact</a>
     @auth
-        <a href="{{route('history.create')}}">Créer une histoire</a>
+        <a href="{{route('story.create')}}">Créer une histoire</a>
     @endauth
     </div>
     <a href="{{route('accueil')}}"><img src="{{asset("images/logo.svg")}}" alt="logo" class="imgHeader"></a>
@@ -15,8 +15,8 @@
     @endguest
     @auth
         <div class="right">
-            {{Auth::user()->name}}
-            <a href="{{route('profil')}}">Profil</a>
+            <a href="{{route('contact')}}">Contact</a>
+            <a href="{{route('profil')}}">{{Auth::user()->name}}</a>
             <a href="{{route("logout")}}"
             onclick="document.getElementById('logout').submit(); return false;">Logout</a>
             <form id="logout" action="{{route("logout")}}" method="post">

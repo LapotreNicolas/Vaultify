@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $finies = $user->terminees()->sum("nombre");
-        $creees = Histoire::where('user_id', $id);
+        $creees = Histoire::all()->where('user_id', $id);
         return view('users.showUser', [ 'user' => $user, 'finies' => $finies, 'creees' => $creees]);
     }
 
@@ -38,7 +38,7 @@ class UserController extends Controller
         $now = time();
         $nom = sprintf("%s_%d.%s", $nom, $now, $file->extension());
 
-        $file->storeAs('/public/images',$nom);
+        $file->storeAs('images',$nom);
         if (isset($user->avatar)) {
             Log::info("Image supprimée : ". $user->avatar);
             Storage::delete($user->avatar);

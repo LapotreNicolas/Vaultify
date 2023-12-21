@@ -435,7 +435,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input, .createHistory>.card>form>div>input {
+.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -600,6 +600,10 @@ footer>div>p{
 
 /* SHOW HISTORY */
 
+.showHistory>.desc{
+    text-align: center;
+}
+
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
     text-align: center;
@@ -611,9 +615,16 @@ footer>div>p{
     font-size: 2vh;
     line-height: 3vh;
     text-align: center;
+    margin-bottom: .5em;
 }
 
-.showHistory>.desc>p:after{
+.showHistory>.desc>a{
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 2vh;
+}
+
+.showHistory>.desc>a:after{
     content: "";
     display: flex;
     width: 70%;
@@ -702,15 +713,90 @@ footer>div>p{
     font-weight: 300;
 }
 
+/* equipe */
 
-/*  */
+.equipe{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h3mem{
+    font-size: 7vh;
+}
+
+.cards2{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin-bottom: 10vh;
+    color: white;
+}
+
+.equipe>ul{
+    width: 100%;
+}
+
+.card2{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin: 2vh;
+}
+
+.card2i{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card2:before, .card2:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card2:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card2:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+.h3name{
+    font-size: 4vh;
+}
+
+.leli{
+    font-size: 2vh;
+}
+
+/* Un chapitre */
+
+.titreChap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .titreChap h1 {
     font-family: 'Jomhuria', serif;
     font-weight: inherit;
     font-size: 16vh;
     margin: 0;
-    color: white;
+    color: #0E0E0E;
     text-align: center;
 }
 /* CREATE HISTORY */
@@ -719,9 +805,168 @@ footer>div>p{
     background-color: var(--white);
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 12rem;
 }
 
 .createHistory>.card{
     color: white;
+    position: relative;
+    transform: inherit;
+    height: 100%;
+    top: inherit;
+    left: inherit;
+}
+
+.card>form label{
+    width: 30%;
+    display: flex;
+}
+
+.card>form>div{
+    display: flex;
+}
+
+.card>form>div>select{
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #0E0E0E;
+    background-color: #E2B356;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card>form textarea{
+    resize: vertical;
+}
+
+.card>form input, .card>form textarea, .card>form>div>select{
+    width: 100%;
+}
+
+.titreChap img {
+    width: 50%;
+}
+
+.chapitre {
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chapitre img {
+    max-height: 30em;
+}
+
+.questions h3 {
+    color: white;
+}
+
+.questions a {
+    color: white;
+    text-decoration: none;
+}
+
+.ariane a {
+    color: #0E0E0E;
+    text-decoration: none;
+}
+.cards3{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin-bottom: 10vh;
+    color: white;
+    align-items: center;
+}
+
+.card3{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    width: 50%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* .card2i{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-around;
+    width: 100%;
+} */
+
+.card3:before, .card3:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card3:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card3:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+/* CREATE CHAPITRE */
+
+.createChapitre>div>h3{
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    margin: .25em;
+}
+
+.createChapitre table{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.createChapitre th, .createChapitre td{
+    border: 1px solid black;
+    font-size: 1.75em;
+    text-align: center;
+    padding: .5em .75em;
+}
+
+.createChapitre>.card{
+    color: white;
+}
+
+.createChapitre>.card input,  .createChapitre>.card textarea{
+    background-color: #E2B356;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    align-items: center;
+    font-size: 3vh;
+    margin: 1vh 0;
+}
+
+.createChapitre input[type="submit"]{
+    margin-top: 1em;
+}
+
+.createChapitre>.card>form>div{
+    display: flex;
 }

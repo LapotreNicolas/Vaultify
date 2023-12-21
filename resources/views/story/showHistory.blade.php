@@ -15,10 +15,11 @@
             <div class="desc">
                 <h2>Description de l'histoire</h2>
                 <p>{{$histoire->pitch}}</p>
+                <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>
             </div>
             <div class="genre">
                 <h2>Genre</h2>
-                <p>{{$histoire->genre['label']}}</p>
+                <a href="{{route('story.index', ['nom_genre' => $histoire->genre['label']])}}">{{$histoire->genre['label']}}</a>
             </div>
             <div class="img">
                 <img class="image" src="{{asset($histoire->photo)}}" alt="image">
@@ -69,7 +70,7 @@
                 <div class="comments">
                     @foreach($commentaires as $com)
                         <div>
-                            <p><img src="{{Storage::url('images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
+                            <p><img src="{{asset('storage/images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
                             <p>{{$com->contenu}}</p>
                         </div>
                     @endforeach

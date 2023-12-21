@@ -4,7 +4,7 @@
         <div class="homeTextImg">
             <h1>Nom d'équipe : {{$equipe['nomEquipe']}}</h1>
             <h2>Slogan : {{$equipe['slogan']}}</h2>
-            <img src="images/ornament1.svg" alt="ornament ">
+            <img src="../images/ornament1.svg" alt="ornament ">
             <h3>Localisation : {{$equipe['localisation']}}</h3>
         </div>
         <a href="#homeContent"><i class='bx bx-down-arrow-alt'></i></a>

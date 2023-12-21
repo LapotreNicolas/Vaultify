@@ -15,6 +15,7 @@
             <div class="desc">
                 <h2>Description de l'histoire</h2>
                 <p>{{$histoire->pitch}}</p>
+                <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>
             </div>
             <div class="genre">
                 <h2>Genre</h2>
@@ -69,7 +70,7 @@
                 <div class="comments">
                     @foreach($commentaires as $com)
                         <div>
-                            <p><img src="{{asset('storage/images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
+                            <p><img style="max-width: 5vh" src="{{asset('storage/images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
                             <p>{{$com->contenu}}</p>
                         </div>
                     @endforeach

@@ -18,24 +18,25 @@ messages d'erreurs dans la saisie du formulaire.
                 <h3>Création d'une histoire</h3>
                 <div>
                     <label for="titre"><strong>Titre de l'histoire : </strong></label>
-                    <input type="text" name="titre" id="titre"
-                           value="{{ old('titre') }}">
+                    <input type="text" name="titre" id="titre" value="{{ old('titre') }}" placeholder="Titre de l'histoire">
                 </div>
                 <div>
                     <label for="pitch-input"><strong>Pitch : </strong></label>
                     <textarea name="pitch" id="pitch" rows="6"
                               placeholder="Pitch..">{{ old('pitch') }}</textarea>
                 </div>
-                <label for="genre_id"><strong>Genre:</strong></label>
-                <select name="genre_id" id="genre_id">
-                    @foreach ($genres as $genre)
-                        <option value="{{ $genre->id }}">{{ $genre->label }}</option>
-                    @endforeach
-                </select>
+                <div>
+                    <label for="genre_id"><strong>Genre:</strong></label>
+                    <select name="genre_id" id="genre_id">
+                        @foreach ($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->label }}</option>
+                        @endforeach
+                    </select>
+                </div>
         
                 <div>
-                    <strong>Photo :</strong>
-                    <input type="text" name="photo" placeholder="URL photo">
+                    <label for="photo"><strong>Photo :</strong></label>
+                    <input type="text" name="photo" placeholder="URL photo" id="photo">
                 </div>
                 <div>
                     <button type="submit">Valide</button>

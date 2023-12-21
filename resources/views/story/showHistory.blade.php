@@ -15,6 +15,7 @@
             <div class="desc">
                 <h2>Description de l'histoire</h2>
                 <p>{{$histoire->pitch}}</p>
+                <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>
             </div>
             <div class="genre">
                 <h2>Genre</h2>

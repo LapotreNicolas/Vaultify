@@ -600,6 +600,10 @@ footer>div>p{
 
 /* SHOW HISTORY */
 
+.showHistory>.desc{
+    text-align: center;
+}
+
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
     text-align: center;
@@ -611,9 +615,16 @@ footer>div>p{
     font-size: 2vh;
     line-height: 3vh;
     text-align: center;
+    margin-bottom: .5em;
 }
 
-.showHistory>.desc>p:after{
+.showHistory>.desc>a{
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 2vh;
+}
+
+.showHistory>.desc>a:after{
     content: "";
     display: flex;
     width: 70%;
@@ -913,5 +924,50 @@ footer>div>p{
 .card3:after{
     width: calc(100% + 2vh);
     height: calc(100% + 2vh);
+}
+
+/* CREATE CHAPITRE */
+
+.createChapitre>div>h3{
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    margin: .25em;
+}
+
+.createChapitre table{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.createChapitre th, .createChapitre td{
+    border: 1px solid black;
+    font-size: 1.75em;
+    text-align: center;
+    padding: .5em .75em;
+}
+
+.createChapitre>.card{
+    color: white;
+}
+
+.createChapitre>.card input,  .createChapitre>.card textarea{
+    background-color: #E2B356;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    align-items: center;
+    font-size: 3vh;
+    margin: 1vh 0;
+}
+
+.createChapitre input[type="submit"]{
+    margin-top: 1em;
+}
+
+.createChapitre>.card>form>div{
+    display: flex;
 }
 

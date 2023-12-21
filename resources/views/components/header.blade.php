@@ -1,4 +1,4 @@
-<header {{ Route::currentRouteName() === "index" || Route::currentRouteName() === "accueil" ? 'class=absHeader' : '' }}>
+<header>
     <div class="left">
         <a href="{{route('story.index')}}">Histoires</a>
         @auth

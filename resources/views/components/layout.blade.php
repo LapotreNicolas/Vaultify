@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    @vite(['resources/css/test-vite.css', 'resources/css/app.css', 'resources/css/normalize.css', 'resources/js/test-vite.js'])
+    @vite(['resources/css/test-vite.css', 'resources/css/app.css', 'resources/css/normalize.css', 'resources/js/app.js'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <x-header></x-header>
 <body>
     <div class="loader">
-        <img src="{{asset("images/logo.svg")}}" alt="logo">
+        <div>
+            <img src="{{asset("images/logo.svg")}}" alt="logo">
+        </div>
     </div>
     <main class="main-container">
         {{$slot}}

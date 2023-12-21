@@ -16,20 +16,28 @@
                 <input type="submit" value="OK">
             </form>
             <div>
+                <div class="cards">
                 @foreach($histoires as $histoire)
                     @if ($histoire->active>0)
-                    <div>{{$histoire->titre}}</div>
-                    <div>{{$histoire->pitch}}</div>
-                    <a href="{{route('users.show',$histoire->user->id)}}">
-                        <div>{{$histoire->user->name}}</div>
-                    </a>
-                    <div>
-                        <button>
-                            <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">AFFICHER</a>
-                        </button>
+
+                        <div class="card">
+                            <div class="titleCard">
+                                <img src="{{asset("images/icon.jpg")}}" alt="">
+                                <div class="headCard">
+                                    <h3>{{$histoire->titre}}</h3>
+                                    <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>
+                                </div>
+                            </div>
+                            <div class="contentCard">
+                                <p>{{$histoire->pitch}}</p>
+                            </div>
+                            <div class="buttonCard">
+                                <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">Lire</a>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
                     </div>
-                    @endif
-                @endforeach
             </div>
         @else
             <h3>Là, il n'y a pas d'histoire</h3>

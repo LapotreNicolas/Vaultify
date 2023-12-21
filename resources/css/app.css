@@ -19,6 +19,7 @@ body {
     --white: #e6e6e6;
     --padding-header: 2.5vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 main {
@@ -435,7 +436,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea {
+.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea, .createHistory>.card>form>div>button{
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -600,6 +601,15 @@ footer>div>p{
 
 /* SHOW HISTORY */
 
+.showHistory>.desc{
+    text-align: center;
+}
+
+.genre{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
     text-align: center;
@@ -607,13 +617,21 @@ footer>div>p{
     font-weight: inherit;
 }
 
-.showHistory>.desc>p, .showHistory>.genre>p{
+.showHistory>.desc>p, .showHistory>.genre>a{
     font-size: 2vh;
     line-height: 3vh;
     text-align: center;
+    margin-bottom: .5em;
+    text-decoration: none;
 }
 
-.showHistory>.desc>p:after{
+.showHistory>.desc>a{
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 2vh;
+}
+
+.showHistory>.desc>a:after{
     content: "";
     display: flex;
     width: 70%;
@@ -622,7 +640,7 @@ footer>div>p{
     margin: 5vh auto;
 }
 
-.showHistory>.genre>p{
+.showHistory>.genre>a{
     color: var(--gold);
     font-size: 5vh;
 }
@@ -807,13 +825,19 @@ footer>div>p{
     left: inherit;
 }
 
+.createHistory>.card>form>div>button{
+    width: 100%;
+}
+
 .card>form label{
     width: 30%;
     display: flex;
+    font-size: 1.5em;
 }
 
 .card>form>div{
     display: flex;
+    align-items: center;
 }
 
 .card>form>div>select{
@@ -827,6 +851,7 @@ footer>div>p{
     background-color: #E2B356;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 2.5vh;
 }
 
 .card>form textarea{
@@ -864,4 +889,116 @@ footer>div>p{
 .ariane a {
     color: #0E0E0E;
     text-decoration: none;
+}
+.cards3{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin-bottom: 10vh;
+    color: white;
+    align-items: center;
+}
+
+.card3{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    width: 50%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* .card2i{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-around;
+    width: 100%;
+} */
+
+.card3:before, .card3:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card3:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card3:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+/* CREATE CHAPITRE */
+
+.createChapitre>div>h3{
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    margin: .25em;
+}
+
+.createChapitre table{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.createChapitre th, .createChapitre td{
+    border: 1px solid black;
+    font-size: 1.75em;
+    text-align: center;
+    padding: .5em .75em;
+}
+
+.createChapitre>.card{
+    color: white;
+}
+
+.createChapitre>.card input,  .createChapitre>.card textarea{
+    background-color: #E2B356;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 0.3rem;
+    align-items: center;
+    font-size: 3vh;
+    margin: 1vh 0;
+}
+
+.createChapitre input[type="submit"]{
+    margin-top: 1em;
+}
+
+.createChapitre>.card>form>div{
+    display: flex;
+}
+
+
+
+.firstChap{
+    align-items: center;
+}
+
+.card>form>.firstChap>input{
+    margin-left: .5em;
+}
+
+.card>form>.firstChap>label, .card>form>.firstChap>input{
+    width: fit-content;
+}
+
+.createChapitre>.card>form>div>select{
+    margin: 1vh 0;
 }

@@ -10,10 +10,10 @@
                     <a href="{{route('login')}}">Connexion</a>
                 @endguest
                 @auth
-                    <a href="{{route('history.create')}}">Créer une histoire</a>
+                    <a href="{{route('story.create')}}">Créer une histoire</a>
                 @endauth
             </div>
-            <img src="{{asset("images/logo.svg")}}" alt="logo" class="logoFooter">
+            <a href="{{route("index")}}"><img src="{{asset("images/logo_text.svg")}}" alt="logo" class="logoFooter"></a>
         </div>
         <p>©2023 | Copyright | Les chevaliers de la &lt;table&gt;, Tous droits réservés</p>
     </div>

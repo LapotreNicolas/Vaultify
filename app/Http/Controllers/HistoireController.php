@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avis;
 use App\Models\Genre;
 use App\Models\Chapitre;
 use App\Models\Histoire;
@@ -101,19 +102,46 @@ class HistoireController extends Controller
     public function show(Request $request, $id)
     {
         $histoire = Histoire::find($id);
+        $commentaires = $histoire->avis;
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire,
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires,
             'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
     }
 
 
     // Gestion des Chapitres
 
-    public function showChapter(Request $request, $id, $chapter_id)
+    public function showChapter(Request $request, $chapter_id)
     {
         $chapitre = Chapitre::find($chapter_id);
         $suivants = $chapitre->suivants;
         return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
     }
 
+    function storeAvis(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'contenu' => 'required',
+            ]
+        );
+
+        $contenu = $request->get('contenu');
+        $user_id = Auth::id();
+        $histoire_id = $request->get('h_id');
+        $avis = Avis::create(['contenu' => $contenu, 'user_id' => $user_id, 'histoire_id' => $histoire_id]);
+
+        return redirect()->route('story.show', ['story' => $request->get('h_id')]);
+    }
+
+    public function changeActive(Request $request)
+    {
+        $id = $request->get('id');
+        $histoire = Histoire::find($id);
+        $histoire->active = ($histoire->active+1)%2;
+        $histoire->save();
+
+        return redirect()->route('profil');
+    }
 }

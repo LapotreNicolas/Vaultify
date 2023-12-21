@@ -33,7 +33,7 @@
                 <div>
                     <input type="text" name="question" placeholder="Question">
                 </div>
-                <div>
+                <div class="firstChap">
                     <label for="premier">Premier chapitre ?</label>
                     <input type="checkbox" name="premier" id="premier">
                 </div>

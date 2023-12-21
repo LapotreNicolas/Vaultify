@@ -9,11 +9,11 @@ class EquipeController extends Controller
     public function index() {
         $equipe= [
             'nomEquipe'=>"Les chevaliers de la <table>",
-            'logo'=>"/public/images/logo.jpg",
+            'logo'=>"logo.jpg",
             'slogan'=>"cmd coder/manger/dormir",
             'localisation'=>"12E",
             'membres'=> [
-                [ 'nom'=>"Biet",'prenom'=>"Lou-Anne", 'image'=>"nomFichier", 'fonctions'=>["développeur", "concepteur", "designer", "dragon"] ],
+                [ 'nom'=>"Biet",'prenom'=>"Lou-Anne", 'image'=>"nomFichier", 'fonctions'=>["développeuse", "conceptrice", "designer", "dragon"] ],
                 [ 'nom'=>"Delmote",'prenom'=>"Axel", 'image'=>"nomFichier", 'fonctions'=>["développeur", "concepteur", "designer"] ],
                 [ 'nom'=>"Machu",'prenom'=>"Killian", 'image'=>"nomFichier", 'fonctions'=>["développeur", "concepteur", "designer"] ],
                 [ 'nom'=>"Barlet",'prenom'=>"Ethan", 'image'=>"nomFichier", 'fonctions'=>["développeur", "concepteur", "designer", "raptor"] ],

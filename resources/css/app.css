@@ -19,6 +19,7 @@ body {
     --white: #e6e6e6;
     --padding-header: 2.5vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 main {
@@ -292,11 +293,11 @@ footer>div>p{
     align-items: center;
     padding: 0 0 2vh 0;
     border-bottom: .2vh solid white;
+    height: 7vh;
 }
 
 .titleCard>img{
-    width: 8vh;
-    height: 100%;
+    width: 12vh;
     border-radius: 10em;
     aspect-ratio: 1/1;
     overflow: hidden;
@@ -304,6 +305,7 @@ footer>div>p{
 
 .titleCard>.headCard{
     margin-left: 2vh;
+    width: 100%;
 }
 
 .titleCard>.headCard>*{
@@ -319,6 +321,7 @@ footer>div>p{
 .contentCard{
     padding: 2vh 1vh;
     border-bottom: .2vh solid white;
+    height: 10vh;
 }
 
 .contentCard>p{
@@ -435,7 +438,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea {
+.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea, .createHistory>.card>form>div>button{
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -604,6 +607,11 @@ footer>div>p{
     text-align: center;
 }
 
+.genre{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
     text-align: center;
@@ -611,11 +619,12 @@ footer>div>p{
     font-weight: inherit;
 }
 
-.showHistory>.desc>p, .showHistory>.genre>p{
+.showHistory>.desc>p, .showHistory>.genre>a{
     font-size: 2vh;
     line-height: 3vh;
     text-align: center;
     margin-bottom: .5em;
+    text-decoration: none;
 }
 
 .showHistory>.desc>a{
@@ -633,7 +642,7 @@ footer>div>p{
     margin: 5vh auto;
 }
 
-.showHistory>.genre>p{
+.showHistory>.genre>a{
     color: var(--gold);
     font-size: 5vh;
 }
@@ -711,6 +720,13 @@ footer>div>p{
 
 .comments>div>p:first-child{
     font-weight: 300;
+    font-weight: 300;
+    align-items: center;
+    display: flex;
+}
+
+.comments>div>p:first-child>img{
+    margin-right: 1em;
 }
 
 /* equipe */
@@ -818,13 +834,19 @@ footer>div>p{
     left: inherit;
 }
 
+.createHistory>.card>form>div>button{
+    width: 100%;
+}
+
 .card>form label{
     width: 30%;
     display: flex;
+    font-size: 1.5em;
 }
 
 .card>form>div{
     display: flex;
+    align-items: center;
 }
 
 .card>form>div>select{
@@ -838,6 +860,7 @@ footer>div>p{
     background-color: #E2B356;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 2.5vh;
 }
 
 .card>form textarea{
@@ -890,12 +913,52 @@ footer>div>p{
     min-height: 3px;
     position: relative;
     width: 50%;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding: 5vh;
     margin: 2vh;
     display: flex;
     flex-direction: column;
     align-items: start;
+}
+
+.card3>div{
+    width: 100%;
+    margin: 1em 0;
+}
+
+.card3>div>img{
+    width: 20vh;
+    margin: auto;
+    display: flex;
+}
+
+.card3>h2, .card3>h3{
+    text-align: center;
+    margin: auto;
+}
+
+.card3>ul>li>div>a{
+    color: white;
+}
+
+.card3 .status{
+    background-color: white;
+    border-radius: 2em;
+    padding: .5em 1em;
+    width: fit-content;
+    color: black;
+}
+
+.card3 .buttonStatus{
+    background: none;
+    border: .3vh solid white;
+    padding: .5em 1em;
+    color: white;
+    cursor: pointer;
+}
+
+.card3 .buttonStatus:hover{
+    color: black;
+    background-color: white;
 }
 
 /* .card2i{
@@ -924,6 +987,10 @@ footer>div>p{
 .card3:after{
     width: calc(100% + 2vh);
     height: calc(100% + 2vh);
+}
+
+.card3 .avatar{
+    margin-top: 1em;
 }
 
 /* CREATE CHAPITRE */
@@ -969,4 +1036,26 @@ footer>div>p{
 
 .createChapitre>.card>form>div{
     display: flex;
+}
+
+
+
+.firstChap{
+    align-items: center;
+}
+
+.card>form>.firstChap>input{
+    margin-left: .5em;
+}
+
+.card>form>.firstChap>label, .card>form>.firstChap>input{
+    width: fit-content;
+}
+
+.createChapitre>.card>form>div>select{
+    margin: 1vh 0;
+}.card3 a{
+    font-size: 5vh;
+    text-decoration: none;
+    color: white;
 }

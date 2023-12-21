@@ -28,19 +28,21 @@
                                             </div>
                                             <div>
                                                 <h3 class="h3name">Liste des fonctions : </h3>
-                                            <ul>
-                                            @foreach($membre['fonctions'] as $fonction)
-                                                <li class="leli">{{$fonction}}</li>
-                                            @endforeach
-                                            </ul>
+                                                <ul>
+                                                @foreach($membre['fonctions'] as $fonction)
+                                                    <li class="leli">{{$fonction}}</li>
+                                                @endforeach
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
-                        @endforeach 
+                        @endforeach
                     </div>
                 </ul>
                 <h4>Autres informations : {{$equipe['autres']}}</h4>
-                <img src="{{$equipe['logo']}}" alt="logo">
+                <img src="{{asset('storage/images/'.$equipe['logo'])}}" alt="logo">
+            <iframe style="margin-bottom: 75px" width="560" height="315" src="https://www.youtube.com/embed/xmXYsTUOKyQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </x-layout>

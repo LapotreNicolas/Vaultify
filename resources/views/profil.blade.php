@@ -11,7 +11,7 @@
         <div class="card3">
             <h2>Bienvenue, {{Auth::user()->name}}</h2>
             <div>{{Auth::user()->email}}</div>
-            <div> <img src="{{asset('storage/images/'.Auth::user()->avatar)}}" alt="avatar"> </div>
+            <div> <img style="width: 10vh" src="{{asset('storage/images/'.Auth::user()->avatar)}}" alt="avatar"> </div>
 
             <ul>
                 @foreach($histoires as $his)

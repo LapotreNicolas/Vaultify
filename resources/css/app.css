@@ -971,3 +971,8 @@ footer>div>p{
     display: flex;
 }
 
+.card3 a{
+    font-size: 5vh;
+    text-decoration: none;
+    color: white;
+}

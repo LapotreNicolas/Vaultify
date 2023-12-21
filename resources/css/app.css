@@ -1054,4 +1054,8 @@ footer>div>p{
 
 .createChapitre>.card>form>div>select{
     margin: 1vh 0;
+}.card3 a{
+    font-size: 5vh;
+    text-decoration: none;
+    color: white;
 }

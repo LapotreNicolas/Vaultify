@@ -435,7 +435,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input, .createHistory>.card>form>div>input {
+.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -719,9 +719,45 @@ footer>div>p{
     background-color: var(--white);
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 12rem;
 }
 
 .createHistory>.card{
     color: white;
+    position: relative;
+    transform: inherit;
+    height: 100%;
+    top: inherit;
+    left: inherit;
+}
+
+.card>form label{
+    width: 30%;
+    display: flex;
+}
+
+.card>form>div{
+    display: flex;
+}
+
+.card>form>div>select{
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #0E0E0E;
+    background-color: #E2B356;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card>form textarea{
+    resize: vertical;
+}
+
+.card>form input, .card>form textarea, .card>form>div>select{
+    width: 100%;
 }

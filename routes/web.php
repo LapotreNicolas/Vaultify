@@ -41,3 +41,5 @@ Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
 Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis');
 
 Route::get('/profil',[UserController::class, 'profil'])->middleware(['auth'])->name('profil');
+
+Route::post('/profil', [HistoireController::class, 'changeActive'])->name('story.changeActive');

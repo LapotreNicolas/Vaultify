@@ -484,6 +484,7 @@ footer>div>p{
     background-color: var(--black);
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .quatre{

@@ -399,13 +399,7 @@ footer>div>p{
 
 /* Login */
 
-.log {
-    padding: 0.20em 2em 2em 2em; /* haut; droite; bas; gauche */
-    margin-top: 12rem;
-    height: 100%;
-}
-
-form.login {
+.login {
     max-width: fit-content;
     margin: auto;
     position: absolute;
@@ -414,30 +408,59 @@ form.login {
     transform: translate(-50%, -50%);
 }
 
-.log h3 {
+.login>form>h3 {
     font-family: 'Jomhuria', serif;
     color: white;
     text-align: center;
-    font-size: 40pt;
+    font-size: 10vh;
     margin: 1rem;
+    font-weight: inherit;
 }
 
 .logimg {
-    width: 100%;
-    object-fit: cover;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: white;
 }
 
-.log input {
-    appearance: none;
+.logimg>img{
+    height: 100%;
+    filter: blur(5px);
+}
+
+.logimg>.login>form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login input {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
     margin: 0.5rem;
     padding: 0.3rem;
+    align-items: center;
+    font-size: 3vh;
+    margin: 1vh 0;
 }
 
-.log input[type="submit"] {
+.remember, .bottomLog{
+    display: flex;
+    align-items: center;
+}
+
+.remember>p, .bottomLog>p{
+    margin-right: 1vh;
+}
+
+.bottomLog>a{
+    color: white;
+}
+
+.login input[type="submit"] {
     cursor: pointer;
+    margin-top: 1em;
 }
 
 /* Tous les albums */

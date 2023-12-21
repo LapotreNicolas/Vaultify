@@ -38,6 +38,12 @@
                 @endauth
             </div>
 
+            {{--Nombre de lecture terminer--}}
+            <div>
+            <p>
+                total terminer : {{$terminer}}
+            </p>
+            </div>
 
             <!-- Commentaires ici-->
             @foreach($commentaires as $com)

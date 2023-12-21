@@ -3,6 +3,7 @@
 html {
     position: relative;
     min-height: 100%;
+    scroll-behavior: smooth;
 }
 body {
     /* Margin bottom by footer height */
@@ -206,7 +207,7 @@ footer>div>p{
     font-family: Matura MT Script Capitals;
     font-weight: inherit;
     position: relative;
-    margin: 6vh 0;
+    margin: 8vh 0;
     font-size: 3vh;
     text-align: center;
 }
@@ -339,3 +340,6 @@ footer>div>p{
 .viewAllHome, .createHome{
     margin-bottom: 10vh;
 }
+
+
+

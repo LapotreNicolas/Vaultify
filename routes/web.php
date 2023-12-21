@@ -34,7 +34,7 @@ Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('
 
 Route::resource('users', UserController::class)->only('show');
 
-Route::get('/story/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('story.showChapter');
+Route::get('/chapter/{chapter_id}', [HistoireController::class, 'showChapter'])->name('story.showChapter');
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
 

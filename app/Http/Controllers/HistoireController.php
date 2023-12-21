@@ -6,7 +6,6 @@ use App\Models\Avis;
 use App\Models\Genre;
 use App\Models\Chapitre;
 use App\Models\Histoire;
-use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -136,4 +135,13 @@ class HistoireController extends Controller
         return redirect()->route('story.show', ['story' => $request->get('h_id')]);
     }
 
+    public function changeActive(Request $request)
+    {
+        $id = $request->get('id');
+        $histoire = Histoire::find($id);
+        $histoire->active = ($histoire->active+1)%2;
+        $histoire->save();
+
+        return redirect()->route('profil');
+    }
 }

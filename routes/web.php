@@ -42,6 +42,8 @@ Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis
 
 Route::get('/profil',[UserController::class, 'profil'])->middleware(['auth'])->name('profil');
 
+Route::post('/profil', [HistoireController::class, 'changeActive'])->name('story.changeActive');
+
 Route::get('/story/encours/{id}', [HistoireController::class, 'createChapitre'])->name('createChapitre');
 
 Route::post('/story/encours/{id}/storeChapitre',[HistoireController::class, 'storeChapitre'])->name('storeChapitre');

@@ -1,6 +1,13 @@
 <x-layout titre="Affiche une histoire">
-    <div>
-        <div>titre : {{$histoire->titre}}</div>
+    <div class="topImg">
+        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
+        <div>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+            <h1>{{$histoire->titre}}</h1>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+        </div>
+    </div>
+    <div class="bgBlack">
         <div>pitch : {{$histoire->pitch}}</div>
         <div>genre : {{$histoire->genre['label']}}</div>
         <div>

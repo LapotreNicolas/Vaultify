@@ -7,7 +7,6 @@
     </div>
     <a href="{{route('accueil')}}"><img src="{{asset("images/logo.svg")}}" alt="logo" class="imgHeader"></a>
     <div class="right">
-        <a href="{{route('contact')}}">Contact</a>
         @guest
                 <a href="{{route('register')}}">S'inscrire</a>
                 <a href="{{route('login')}}">Connexion</a>

@@ -42,7 +42,7 @@ Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis
 
 Route::get('/profil',[UserController::class, 'profil'])->middleware(['auth'])->name('profil');
 
-Route::get('/story/encours/{id}', [HistoireController::class, 'createChapter'])->name('createChapter');
+Route::get('/story/encours/{id}', [HistoireController::class, 'createChapitre'])->name('createChapitre');
 
 Route::post('/story/encours/{id}/storeChapitre',[HistoireController::class, 'storeChapitre'])->name('storeChapitre');
 

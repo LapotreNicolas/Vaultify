@@ -4,7 +4,7 @@
             <div>
                 <h2>Menu</h2>
                 <a href="{{route('story.index')}}">Histoires</a>
-                <a href="{{route('story.index')}}">Contact</a>
+                <a href="{{route('equipe.index')}}">Contact</a>
                 @guest
                     <a href="{{route('register')}}">S'inscrire</a>
                     <a href="{{route('login')}}">Connexion</a>

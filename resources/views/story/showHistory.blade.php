@@ -1,3 +1,6 @@
+@php
+    $parsedown = new Parsedown();
+@endphp
 <x-layout titre="Affiche une histoire">
     <div class="topImg">
         <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
@@ -10,7 +13,7 @@
     <div class="bgBlack">
         <div>
             <h2>Description de l'histoire</h2>
-            <p>{{$histoire->pitch}}</p>
+            <p>{!!$parsedown->text($histoire->pitch)!!}</p>
         </div>
         <p>Genre : {{$histoire->genre['label']}}</p>
         <div>

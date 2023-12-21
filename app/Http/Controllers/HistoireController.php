@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Avis;
 use App\Models\Genre;
 use App\Models\Chapitre;
@@ -164,6 +165,17 @@ class HistoireController extends Controller
         $chapitre = Chapitre::find($chapter_id);
         $suivants = $chapitre->suivants;
         $ariane[$chapter_id] = $chapitre->titrecourt;
+        if(Auth::check()){
+            //$sequence = Auth::user()->lectureDeLHistoire($chapitre->histoire_id);
+            if($request->get('terminee')){
+                Auth::user()->lectures()->detach($chapitre->histoire_id);
+                return redirect('/story/'.$chapitre->histoire_id);
+            } else {
+                Auth::user()->lectures()->detach($chapitre->histoire_id);
+                Auth::user()->lectures()->attach($chapitre->histoire_id,['sequence' =>array_keys($ariane)]);
+            }
+            Auth::user() ->save();
+        }
         return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants, 'ariane' => $ariane]);
     }
 

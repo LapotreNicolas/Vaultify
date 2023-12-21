@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $finies = $user->terminees()->sum("nombre");
-        $creees = Histoire::where('user_id', $id);
+        $creees = Histoire::all()->where('user_id', $id);
         return view('users.showUser', [ 'user' => $user, 'finies' => $finies, 'creees' => $creees]);
     }
 

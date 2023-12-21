@@ -13,7 +13,7 @@
                     <a href="{{route('story.create')}}">Créer une histoire</a>
                 @endauth
             </div>
-            <img src="{{asset("images/logo.svg")}}" alt="logo" class="logoFooter">
+            <img src="{{asset("images/logo_text.svg")}}" alt="logo" class="logoFooter">
         </div>
         <p>©2023 | Copyright | Les chevaliers de la &lt;table&gt;, Tous droits réservés</p>
     </div>

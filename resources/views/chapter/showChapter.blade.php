@@ -2,14 +2,6 @@
     $parsedown = new Parsedown();
 @endphp
 <x-layout titre="{{ $chapter->titrecourt }}">
-    {{-- <div class="topImg">
-        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
-        <div>
-            <img src="{{asset("images/ornament2.svg")}}" alt="">
-            <h1>{{ $chapter->titrecourt }}</h1>
-            <img src="{{asset("images/ornament2.svg")}}" alt="">
-        </div>
-    </div> --}}
     <style>
         main {
             padding-top: 9rem;

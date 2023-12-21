@@ -848,6 +848,10 @@ footer>div>p{
     align-items: center;
 }
 
+.chapitre img {
+    max-height: 30em;
+}
+
 .questions h3 {
     color: white;
 }

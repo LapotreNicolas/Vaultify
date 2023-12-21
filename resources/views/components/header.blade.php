@@ -15,6 +15,7 @@
         <div>
             <a href="{{route('story.create')}}">Créer une histoire</a>
             {{Auth::user()->name}}
+            <a href="{{route('profil')}}">Profil</a>
             <a href="{{route("logout")}}"
             onclick="document.getElementById('logout').submit(); return false;">Logout</a>
             <form id="logout" action="{{route("logout")}}" method="post">

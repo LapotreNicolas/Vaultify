@@ -24,10 +24,6 @@ Route::get('/', function () {
 
 Route::get('/accueil', [HomeController::class, 'accueil'])->name('accueil');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name("contact");
-
 Route::resource('story', HistoireController::class);
 
 Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('story.upload');

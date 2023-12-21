@@ -28,7 +28,7 @@
     
                             <div class="card">
                                 <div class="titleCard">
-                                    <img src="{{asset("images/icon.jpg")}}" alt="">
+                                    <img src="{{Storage::url('images/'.$histoire->user->avatar)}}" alt="avatar">
                                     <div class="headCard">
                                         <h3>{{$histoire->titre}}</h3>
                                         <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>

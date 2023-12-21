@@ -23,7 +23,7 @@
     <div class="chapitre" id="chapitre">
         <p>{!!$parsedown->text($chapter->texte)!!}</p>
         @if (isset($chapter->media))
-            {{--<img src="{{ Storage::url($chapter->media) }}" alt="Une image censé illustrer le chapitre">--}}
+            <img src="{{$chapter->media}}" alt="Une image censé illustrer le chapitre">
         @endif
         @if (count($suivants)>0)
             <h3>Questions</h3>

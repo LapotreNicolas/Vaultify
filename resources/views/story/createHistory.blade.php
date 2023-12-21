@@ -27,11 +27,6 @@ messages d'erreurs dans la saisie du formulaire.
             <textarea name="pitch" id="pitch" rows="6"
                       placeholder="Pitch..">{{ old('pitch') }}</textarea>
         </div>
-        <div>
-            <label for="active"><strong>Active : </strong></label>
-            <input type="number" min="0" max="1" id="active" name="active"
-                   value="{{ old('active') }}">
-        </div>
         <label for="genre_id"><strong>Genre:</strong></label>
         <select name="genre_id" id="genre_id">
             @foreach ($genres as $genre)
@@ -43,7 +38,7 @@ messages d'erreurs dans la saisie du formulaire.
 
         <div>
             <strong>Photo :</strong>
-            <input type="file" name="photo" placeholder="image" {{ old('photo') }}>
+            <input type="text" name="photo" placeholder="URL photo">
         </div>
         <div>
             <button type="submit">Valide</button>

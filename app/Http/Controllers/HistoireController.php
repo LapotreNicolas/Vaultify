@@ -59,41 +59,86 @@ class HistoireController extends Controller
      */
     public function store(Request $request)
     {
-        {
-            $this->validate(
-                $request,
-                [
-                    'titre' => 'required',
-                    'pitch' => 'required',
-                    'active' => 'required',
-                    'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                    'genre_id' =>' required',
-                ]
-            );
+        $this->validate(
+            $request,
+            [
+                'titre' => 'required',
+                'pitch' => 'required',
+                'genre_id' =>' required',
+            ]
+        );
 
-            // A partir d'ici le code est exécuté uniquement si les données sont validaées
-            // par la méthode validate()
-            // sinon un message d'erreur est renvoyé vers l'utilisateur
+        $photo = $request->get('photo');
+        if (!isset($photo)) $photo = '/images/bit-1.webp';
 
-            // préparation de l'enregistrement à stocker dans la base de données
-            $histoire = new Histoire();
+        $histoire = new Histoire();
 
-            $histoire->titre = $request->titre;
-            $histoire->pitch = $request->pitch;
-            $histoire->active = $request->active;
-            $photo = $request->file('photo')->store('images', 'public');
-            $histoire->photo = $photo;
-            $histoire->user_id = Auth::id();
-            $histoire->genre_id = $request->input('genre_id');
+        $histoire->titre = $request->titre;
+        $histoire->pitch = $request->pitch;
+        $histoire->active = 0;
+        $histoire->photo = $photo;
+        $histoire->user_id = Auth::id();
+        $histoire->genre_id = $request->input('genre_id');
 
-            // insertion de l'enregistrement dans la base de données
-            $histoire->save();
+        $histoire->save();
 
-            // redirection vers la page qui affiche la liste des tâches
-            return redirect()->route('story.index')
-                ->with('type', 'primary')
-                ->with('msg', 'Scene ajoutée avec succès');
-        }
+        return redirect()->route('createChapitre', ['id' => $histoire->id]);
+    }
+
+    public function createChapitre($id)
+    {
+        $histoire = Histoire::find($id);
+        return view('chapter.createChapitre', ['histoire' => $histoire]);
+    }
+
+    public function storeChapitre(Request $request, $id)
+    {
+        $this->validate(
+            $request,
+            [
+                'titrecourt' => 'required',
+                'texte' => 'required',
+            ]
+        );
+
+        $chapitre = new Chapitre();
+        if (isset($request->titre)) $chapitre->titre = $request->titre;
+        $chapitre->titrecourt = $request->titrecourt;
+        $chapitre->texte = $request->texte;
+        if (isset($request->question)) $chapitre->question = $request->question;
+        if (isset($request->premier)) $chapitre->premier = 1;
+        else $chapitre->premier = 0;
+        if (isset($request->media)) $chapitre->media = $request->media;
+        $chapitre->histoire_id = $id;
+
+        $chapitre->save();
+
+        $histoire = Histoire::find($id);
+        return redirect()->route('createChapitre', ['id' => $histoire->id]);
+    }
+
+    public function lienChapitre(Request $request, $id)
+    {
+        $this->validate(
+            $request,
+            [
+                'id_src' => 'required',
+                'id_dest' => 'required',
+                'reponse' => 'required',
+            ]
+        );
+
+        $id_src = $request->id_src;
+        $id_dest = $request->id_dest;
+
+        $src = Chapitre::find($id_src);
+        // $dest = Chapitre::find($id_dest);
+
+        $src->suivants()->attach($id_dest, ['reponse' => $request->reponse]);
+
+        $histoire = Histoire::find($id);
+
+        return redirect()->route('createChapitre', ['id' => $histoire->id]);
     }
 
     /**
@@ -103,8 +148,10 @@ class HistoireController extends Controller
     {
         $histoire = Histoire::find($id);
         $commentaires = $histoire->avis;
+        $terminer = $histoire->terminees()->sum("nombre");
+        $avis = $histoire->avis()->sum("histoire_id");
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires,
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires, 'terminer' => $terminer, 'avis' => $avis,
             'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
     }
 
@@ -113,9 +160,11 @@ class HistoireController extends Controller
 
     public function showChapter(Request $request, $chapter_id)
     {
+        $ariane = $request->get('ariane',default: []);
         $chapitre = Chapitre::find($chapter_id);
         $suivants = $chapitre->suivants;
-        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
+        $ariane[$chapter_id] = $chapitre->titrecourt;
+        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants, 'ariane' => $ariane]);
     }
 
     function storeAvis(Request $request)

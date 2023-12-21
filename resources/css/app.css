@@ -5,6 +5,7 @@ html {
     min-height: 100%;
     scroll-behavior: smooth;
 }
+
 body {
     /* Margin bottom by footer height */
     display: flex;
@@ -33,18 +34,15 @@ main {
 /* header */
 
 header{
-    background-color: rgba(0, 0, 0, 0.70);
+    background-color: rgba(0, 0, 0, 0.60);
     padding: 2.5vh var(--padding-header) 1.25vh var(--padding-header);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 1vh 3vh 3vh rgba(0, 0, 0, 0.70);
-}
-
-.absHeader{
+    box-shadow: 0 1vh 3vh 3vh rgba(0, 0, 0, 0.60);
     position: absolute;
     width: calc(100% - 2 * var(--padding-header));
-    z-index: 1;
+    z-index: 2;
 }
 
 .imgHeader{
@@ -78,6 +76,20 @@ footer{
     margin-top: auto;
     background-color: var(--gray);
     padding: 2em 0 .5em 0;
+    position: relative;
+}
+
+footer:before{
+    content: "";
+    position: absolute;
+    width: 55vh;
+    background-image: url(/images/ornament1.svg);
+    background-size: cover;
+    height: 5vh;
+    background-position: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -2.6vh;
 }
 
 footer>div{
@@ -238,8 +250,9 @@ footer>div>p{
 
 .cards{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5vh;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5vh;
+    grid-auto-flow: row;
     margin-bottom: 10vh;
     color: white;
 }
@@ -249,6 +262,7 @@ footer>div>p{
     min-height: 3px;
     position: relative;
     padding: 3vh;
+    margin: 2vh;
 }
 
 .card:before, .card:after{
@@ -348,8 +362,8 @@ footer>div>p{
 }
 
 .loader{
-    position: absolute;
-    z-index: 1;
+    position: fixed;
+    z-index: 3;
     width: 100%;
     height: 100vh;
     background-color: var(--black);
@@ -380,4 +394,133 @@ footer>div>p{
     100%{
         rotate: 360deg;
     }
+}
+
+/* Tous les albums */
+
+.filtre {
+    margin: 2rem 0;
+    position: relative;
+}
+
+.filtre select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #0E0E0E;
+    background-color: #E2B356;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+}
+
+.filtre select:focus {
+    border-radius: 10px 0 0 0;
+}
+
+.filtre select option {
+    border-radius: 0 0 10px 10px;
+}
+
+.filtre input[type="submit"] {
+    appearance: none;
+    border: none;
+    font: inherit;
+    background-color: #dea83a;
+    padding: 1rem;
+    cursor: pointer;
+    color: #0E0E0E;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+}
+
+.topImg{
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.topImg>img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    height: 110%;
+}
+
+.topImg>div{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.topImg>div>h1{
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    font-size: 16vh;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.topImg>div>img{
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.topImg>div>img:last-child{
+    rotate: 180deg;
+}
+
+.bgBlack{
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+}
+
+.quatre{
+    font-family: 'Jomhuria', serif;
+    background-color: #0E0E0E;
+    height: 100vh;
+    color: white;
+    font-weight: inherit;
+}
+.quatre h1{
+    font-weight: inherit;
+}
+.quatre h6{
+    font-weight: inherit;
+}
+.quatre img{
+    width: 80px;
+}
+.quatrecontainer{
+    position: relative;
+}
+.arrow{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.erreur{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 6%;
+    font-size: 1rem;
+}
+.imgerreur{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.imgerreur img{
+    width: 120px;
 }

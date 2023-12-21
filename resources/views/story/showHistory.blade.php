@@ -1,12 +1,25 @@
+@php
+    $parsedown = new Parsedown();
+@endphp
 <x-layout titre="Affiche une histoire">
-    <div>
-        <div>titre : {{$histoire->titre}}</div>
-        <div>pitch : {{$histoire->pitch}}</div>
-        <div>genre : {{$histoire->genre['label']}}</div>
+    <div class="topImg">
+        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
         <div>
-            <img class="image" src="{{url('storage/'.$histoire->photo)}}" alt="image">
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+            <h1>{{$histoire->titre}}</h1>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
         </div>
-        <a href="{{route('history.showChapter',['id'=> $histoire->id,'chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
+    </div>
+    <div class="bgBlack">
+        <div>
+            <h2>Description de l'histoire</h2>
+            <p>{!!$parsedown->text($histoire->pitch)!!}</p>
+        </div>
+        <p>Genre : {{$histoire->genre['label']}}</p>
+        <div>
+            <img class="image" src="{{asset($histoire->photo)}}" alt="image">
+        </div>
+        <a href="{{route('story.showChapter',['chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
         <div>
             @if($action == 'delete')
                 <form action="{{route('story.destroy',$histoire->id)}}" method="POST">
@@ -38,6 +51,15 @@
                 @endauth
             </div>
 
+            {{--Nombre de lecture terminer--}}
+            <div>
+                <p>
+                    total terminer : {{$terminer}}
+                </p>
+                <p>
+                    Nombre d'avis positifs : {{$avis}}
+                </p>
+            </div>
 
             <!-- Commentaires ici-->
             @foreach($commentaires as $com)

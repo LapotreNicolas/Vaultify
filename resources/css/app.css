@@ -596,7 +596,9 @@ footer>div>p{
 }
 .imgerreur img{
     width: 120px;
-}/* SHOW HISTORY */
+}
+
+/* SHOW HISTORY */
 
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
@@ -700,6 +702,17 @@ footer>div>p{
     font-weight: 300;
 }
 
+
+/*  */
+
+.titreChap h1 {
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    font-size: 16vh;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
 /* CREATE HISTORY */
 
 .createHistory{

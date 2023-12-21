@@ -9,9 +9,10 @@
             <h3>Questions</h3>
             @foreach ($suivants as $suivant)
                 <div class="question">
-                    <p><a href="{{route('story.showChapter',['chapter_id' => $suivant->id] )}}">{{$suivant->pivot->reponse}}</a></p>
+                    <p><a href="{{route('story.showChapter',['chapter_id' => $suivant->id, 'ariane' => $ariane] )}}">{{$suivant->pivot->reponse}}</a></p>
                 </div>
             @endforeach
+            <p>@foreach($ariane as $key => $value)<a href="{{route('story.showChapter',['chapter_id' => $key, 'ariane' => $ariane])}}">{{$value}}</a>->@endforeach</p>
         @else
             <h3>Fin de Partie</h3>
         @endif

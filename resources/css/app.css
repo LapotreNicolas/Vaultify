@@ -16,6 +16,7 @@ body {
     --gray: #282828;
     --black: #0E0E0E;
     --gold: #E2B356;
+    --white: #e6e6e6;
     --padding-header: 2.5vh;
     overflow-y: hidden;
 }
@@ -399,7 +400,7 @@ footer>div>p{
 
 /* Login */
 
-.login {
+.login, .createHistory>.card {
     max-width: fit-content;
     margin: auto;
     position: absolute;
@@ -408,7 +409,7 @@ footer>div>p{
     transform: translate(-50%, -50%);
 }
 
-.login>form>h3 {
+.login>form>h3, .createHistory>.card>form>h3 {
     font-family: 'Jomhuria', serif;
     color: white;
     text-align: center;
@@ -434,7 +435,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input {
+.login input, .createHistory>.card>form>div>input,.createHistory>.card>form>div>textarea {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -461,6 +462,10 @@ footer>div>p{
 .login input[type="submit"] {
     cursor: pointer;
     margin-top: 1em;
+}
+
+.login input:focus{
+    outline: none;
 }
 
 /* Tous les albums */
@@ -697,6 +702,75 @@ footer>div>p{
     font-weight: 300;
 }
 
+/* equipe */
+
+.equipe{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h3mem{
+    font-size: 7vh;
+}
+
+.cards2{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin-bottom: 10vh;
+    color: white;
+}
+
+.equipe>ul{
+    width: 100%;
+}
+
+.card2{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin: 2vh;
+}
+
+.card2i{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card2:before, .card2:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card2:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card2:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+.h3name{
+    font-size: 4vh;
+}
+
+.leli{
+    font-size: 2vh;
+}
 
 /* Un chapitre */
 
@@ -713,6 +787,54 @@ footer>div>p{
     margin: 0;
     color: #0E0E0E;
     text-align: center;
+}
+/* CREATE HISTORY */
+
+.createHistory{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 12rem;
+}
+
+.createHistory>.card{
+    color: white;
+    position: relative;
+    transform: inherit;
+    height: 100%;
+    top: inherit;
+    left: inherit;
+}
+
+.card>form label{
+    width: 30%;
+    display: flex;
+}
+
+.card>form>div{
+    display: flex;
+}
+
+.card>form>div>select{
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #0E0E0E;
+    background-color: #E2B356;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card>form textarea{
+    resize: vertical;
+}
+
+.card>form input, .card>form textarea, .card>form>div>select{
+    width: 100%;
 }
 
 .titreChap img {

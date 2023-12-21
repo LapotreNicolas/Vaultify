@@ -11,7 +11,7 @@
                     <li>{{$histoire->titre}}</li>
                 </a>
                 <li>{{$histoire->pitch}}</li>
-                <li><img src="{{Storage::url($histoire->photo)}}" alt="photo"></li>
+                <li><img src="{{asset($histoire->photo)}}" alt="photo"></li>
                 <li></li>
             </ul>
         @endforeach

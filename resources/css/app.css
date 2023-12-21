@@ -16,6 +16,7 @@ body {
     --gray: #282828;
     --black: #0E0E0E;
     --gold: #E2B356;
+    --white: #e6e6e6;
     --padding-header: 2.5vh;
     overflow-y: hidden;
 }
@@ -399,7 +400,7 @@ footer>div>p{
 
 /* Login */
 
-.login {
+.login, .createHistory>.card {
     max-width: fit-content;
     margin: auto;
     position: absolute;
@@ -408,7 +409,7 @@ footer>div>p{
     transform: translate(-50%, -50%);
 }
 
-.login>form>h3 {
+.login>form>h3, .createHistory>.card>form>h3 {
     font-family: 'Jomhuria', serif;
     color: white;
     text-align: center;
@@ -434,7 +435,7 @@ footer>div>p{
     flex-direction: column;
 }
 
-.login input {
+.login input, .createHistory>.card>form>div>input {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
@@ -461,6 +462,10 @@ footer>div>p{
 .login input[type="submit"] {
     cursor: pointer;
     margin-top: 1em;
+}
+
+.login input:focus{
+    outline: none;
 }
 
 /* Tous les albums */
@@ -693,4 +698,17 @@ footer>div>p{
 
 .comments>div>p:first-child{
     font-weight: 300;
+}
+
+/* CREATE HISTORY */
+
+.createHistory{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.createHistory>.card{
+    color: white;
 }

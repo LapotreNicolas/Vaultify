@@ -14,12 +14,7 @@
         </div>
     @endguest
     @auth
-<<<<<<< HEAD
         <div class="right">
-=======
-        <div>
-            <a href="{{route('story.create')}}">Créer une histoire</a>
->>>>>>> adf5a334d9c7b60c2e9015b719a3175efb26f99a
             {{Auth::user()->name}}
             <a href="{{route('profil')}}">Profil</a>
             <a href="{{route("logout")}}"

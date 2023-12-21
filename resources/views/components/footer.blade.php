@@ -10,7 +10,7 @@
                     <a href="{{route('login')}}">Connexion</a>
                 @endguest
                 @auth
-                    <a href="{{route('history.create')}}">Créer une histoire</a>
+                    <a href="{{route('story.create')}}">Créer une histoire</a>
                 @endauth
             </div>
             <img src="{{asset("images/logo_text.svg")}}" alt="logo" class="logoFooter">

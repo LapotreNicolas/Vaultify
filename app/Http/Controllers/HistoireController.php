@@ -104,8 +104,9 @@ class HistoireController extends Controller
         $histoire = Histoire::find($id);
         $commentaires = $histoire->avis;
         $terminer = $histoire->terminees()->sum("nombre");
+        $avis = $histoire->avis()->sum("histoire_id");
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires, 'terminer' => $terminer,
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires, 'terminer' => $terminer, 'avis' => $avis,
             'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
     }
 

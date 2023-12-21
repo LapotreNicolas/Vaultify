@@ -40,9 +40,12 @@
 
             {{--Nombre de lecture terminer--}}
             <div>
-            <p>
-                total terminer : {{$terminer}}
-            </p>
+                <p>
+                    total terminer : {{$terminer}}
+                </p>
+                <p>
+                    Nombre d'avis positifs : {{$avis}}
+                </p>
             </div>
 
             <!-- Commentaires ici-->

@@ -2,11 +2,28 @@
     $parsedown = new Parsedown();
 @endphp
 <x-layout titre="{{ $chapter->titrecourt }}">
-    <div class="chapitre" id="chapitre">
+    {{-- <div class="topImg">
+        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
+        <div>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+            <h1>{{ $chapter->titrecourt }}</h1>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+        </div>
+    </div> --}}
+    <style>
+        main {
+            padding-top: 9rem;
+            background-color: #282828;
+        }
+    </style>
+    <div class="titreChap">
         <h1>{{ $chapter->titrecourt }}</h1>
+        <img src="{{asset("images/ornament1.svg")}}" alt="">
+    </div>
+    <div class="chapitre" id="chapitre">
         <p>{!!$parsedown->text($chapter->texte)!!}</p>
         @if (isset($chapter->media))
-            {{--<img src="{{ Storage::url($chapter->media) }}" alt="Une image censé illustrer le chapitre">--}}
+            <img src="{{$chapter->media}}" alt="Une image censé illustrer le chapitre">
         @endif
         @if (count($suivants)>0)
             <h3>Questions</h3>

@@ -18,9 +18,7 @@ use \App\Http\Controllers\WriterController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name("index");
+Route::get('/',[HistoireController::class, 'accueil'])->name("index");
 
 Route::get('/accueil', [HistoireController::class, 'accueil'])->name('accueil');
 

@@ -22,18 +22,18 @@
                                 </a>
                                 <p>{{$his->pitch}}</p>
                                 @if($his->active)
-                                    <p>active</p>
+                                    <p class="status">active</p>
                                 <form action="{{ route('story.changeActive') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$his->id}}">
-                                    <input type="submit" value="Désactiver">
+                                    <input type="submit" value="Désactiver" class="buttonStatus">
                                 </form>
                                 @else
-                                    <p>inactive</p>
+                                    <p class="status">inactive</p>
                                     <form action="{{ route('story.changeActive') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$his->id}}">
-                                        <input type="submit" value="Activer">
+                                        <input type="submit" value="Activer" class="buttonStatus">
                                     </form>
                                 @endif
                             </div>
@@ -41,7 +41,7 @@
                 @endforeach
                     <form action="{{route('users.upload')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div>
+                        <div class="avatar">
                             <label for="doc">avatar : </label>
                             <input type="file" name="document" id="doc">
                         </div>

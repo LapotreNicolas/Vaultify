@@ -16,6 +16,7 @@ body {
     --black: #0E0E0E;
     --gold: #E2B356;
     --padding-header: 2.5vh;
+    overflow-y: hidden;
 }
 
 main {
@@ -240,6 +241,7 @@ footer>div>p{
     grid-template-columns: repeat(3, 1fr);
     gap: 5vh;
     margin-bottom: 10vh;
+    color: white;
 }
 
 .card{
@@ -308,6 +310,10 @@ footer>div>p{
     margin: 0;
     font-weight: 300;
     font-size: 2vh;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .buttonCard{

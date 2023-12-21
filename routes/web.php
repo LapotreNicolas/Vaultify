@@ -34,7 +34,7 @@ Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('
 
 Route::resource('users', UserController::class)->only('show');
 
-Route::get('/story/{id}/{chapter_id}', [HistoireController::class, 'showChapter'])->name('history.showChapter');
+Route::get('/chapter/{chapter_id}', [HistoireController::class, 'showChapter'])->name('story.showChapter');
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
 
@@ -43,3 +43,9 @@ Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis
 Route::get('/profil',[UserController::class, 'profil'])->middleware(['auth'])->name('profil');
 
 Route::post('/profil', [HistoireController::class, 'changeActive'])->name('story.changeActive');
+
+Route::get('/encours/{id}', [HistoireController::class, 'createChapitre'])->name('createChapitre');
+
+Route::post('/encours/{id}/storeChapitre',[HistoireController::class, 'storeChapitre'])->name('storeChapitre');
+
+Route::post('/encours/{id}/lienChapitre',[HistoireController::class, 'lienChapitre'])->name('lienChapitre');

@@ -12,7 +12,7 @@ class UserController extends Controller
     function show(Request $requete, $id)
     {
         $user = User::find($id);
-        $finies = $user->terminees;
+        $finies = $user->terminees()->sum("nombre");
         $creees = Histoire::where('user_id', $id);
         return view('users.showUser', [ 'user' => $user, 'finies' => $finies, 'creees' => $creees]);
     }

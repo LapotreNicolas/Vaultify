@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avis;
 use App\Models\Genre;
+use App\Models\Chapitre;
 use App\Models\Histoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,13 +45,13 @@ class HistoireController extends Controller
             }
         }
         $genre_possibles = Genre::distinct('label')->pluck('label');
-        return view('history.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'genre' => $nom_genre, 'genres_possibles' => $genre_possibles]);
+        return view('story.indexHistory',['titre' => "Liste des histoires", 'histoires' => $histoire, 'genre' => $nom_genre, 'genres_possibles' => $genre_possibles]);
     }
 
     public function create()
     {
         $genres = Genre::all();
-        return view('history.createHistory', ['genres' => $genres]);
+        return view('story.createHistory', ['genres' => $genres]);
     }
 
     /**
@@ -88,7 +90,7 @@ class HistoireController extends Controller
             $histoire->save();
 
             // redirection vers la page qui affiche la liste des tâches
-            return redirect()->route('history.index')
+            return redirect()->route('story.index')
                 ->with('type', 'primary')
                 ->with('msg', 'Scene ajoutée avec succès');
         }
@@ -100,60 +102,46 @@ class HistoireController extends Controller
     public function show(Request $request, $id)
     {
         $histoire = Histoire::find($id);
+        $commentaires = $histoire->avis;
         $titre = $request->get('action', 'show') == 'show' ? "Détails d'une tâche" : "Suppression d'une tâche";
-        return view('history.showHistory', ['titre' => $titre, 'histoire' => $histoire,
-            'action' => $request->get('action', 'show')]);
+        return view('story.showHistory', ['titre' => $titre, 'histoire' => $histoire, 'commentaires' => $commentaires,
+            'action' => $request->get('action', 'show'), 'id_chapitre'=> $histoire->premier()->id]);
     }
 
-    public function edit(string $id)
+
+    // Gestion des Chapitres
+
+    public function showChapter(Request $request, $chapter_id)
     {
-        $histoire = Histoire::findOrFail($id);
-        return view('history.editHistory', ['titre' => "Modification d'une histoire", 'histoire' => $histoire]);
+        $chapitre = Chapitre::find($chapter_id);
+        $suivants = $chapitre->suivants;
+        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
     }
 
-    public function updateChapitre(Request $request, string $id) {
-        if ($request->input('action', 'Valide') == "Annule") {
-            return redirect()->route('scenes.index', ['titre' => "Liste des scenes"])
-                ->with('type', 'warning')
-                ->with('msg', 'Modification annulée');
-        }
-        $histoire = Histoire::find($id);
-
-        // validation des données de la requête
+    function storeAvis(Request $request)
+    {
         $this->validate(
             $request,
             [
-                'titrecourt' => 'required',
-                'texte' => 'required',
-                'media' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'active' => 'required',
-                'genre_id' =>' required',
-            ],
-            [
-                'required' => 'Le champ :attribute est obligatoire'
+                'contenu' => 'required',
             ]
         );
 
-        // code exécuté uniquement si les données sont validées
-        // sinon un message d'erreur est renvoyé vers l'utilisateur
+        $contenu = $request->get('contenu');
+        $user_id = Auth::id();
+        $histoire_id = $request->get('h_id');
+        $avis = Avis::create(['contenu' => $contenu, 'user_id' => $user_id, 'histoire_id' => $histoire_id]);
 
-        // préparation de l'enregistrement à stocker dans la base de données
-
-        $histoire->titre = $request->titre;
-        $histoire->pitch = $request->pitch;
-        $histoire->active = $request->active;
-        $photo = $request->file('photo')->store('images', 'public');
-        $histoire->photo = $photo;
-        $histoire->user_id = Auth::id();
-        $histoire->genre_id = $request->input('genre_id');
-
-        // insertion de l'enregistrement dans la base de données
-        $histoire->update();
-
-        // redirection vers la page qui affiche la liste des tâches
-        return view('history.editHistory', ['titre' => "Edit de l'histoire"])
-            ->with('type', 'primary')
-            ->with('msg', 'Scene modifiée avec succès');
+        return redirect()->route('story.show', ['story' => $request->get('h_id')]);
     }
 
+    public function changeActive(Request $request)
+    {
+        $id = $request->get('id');
+        $histoire = Histoire::find($id);
+        $histoire->active = ($histoire->active+1)%2;
+        $histoire->save();
+
+        return redirect()->route('profil');
+    }
 }

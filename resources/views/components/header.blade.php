@@ -1,29 +1,28 @@
-<div>Ma super application</div>
-<div>
-    <button><a href="{{route('accueil')}}">🏛 Accueil</a></button>
-    <button><a href="{{route('story.index')}}">Accès aux histoires</a></button>
-    <button><a href="{{route('test-vite')}}">Test Vite</a></button>
-        <button><a href="{{route('contact')}}">Contact</a></button>
-</div>
-@guest
-    <div>
-        <button><a href="{{route('register')}}">📥 Enregistrement</a></button>
-        <button><a href="{{route('login')}}">😎 Connexion</a></button>
+<header {{ Route::currentRouteName() === "index" || Route::currentRouteName() === "accueil" ? 'class=absHeader' : '' }}>
+    <div class="left">
+        <a href="{{route('story.index')}}">Histoires</a>
+        @auth
+            <a href="{{route('story.create')}}">Créer une histoire</a>
+        @endauth
     </div>
-@endguest
-@auth
-    <div>
-        <button><a href="{{route('history.create')}}">Créer une histoire</a></button>
-        {{Auth::user()->name}}
-        <a href="{{route("logout")}}"
-           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
-        <form id="logout" action="{{route("logout")}}" method="post">
-            @csrf
-        </form>
+    <a href="{{route('accueil')}}"><img src="{{asset("images/logo.svg")}}" alt="logo" class="imgHeader"></a>
+    <div class="right">
+        <a href="{{route('contact')}}">Contact</a>
+        @guest
+                <a href="{{route('register')}}">S'inscrire</a>
+                <a href="{{route('login')}}">Connexion</a>
+        @endguest
+        @auth
+            <a href="{{route('profil')}}">{{Auth::user()->name}}</a>
+            <a href="{{route("logout")}}" onclick="document.getElementById('logout').submit(); return false;">Logout</a>
+            <form id="logout" action="{{route("logout")}}" method="post">
+                @csrf
+            </form>
+        @endauth
     </div>
     <script>
         document.getElementById('logout').addEventListener("click", (event) => {
             document.getElementById('logout-form').submit();
         });
     </script>
-@endauth
+</header>

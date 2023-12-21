@@ -49,6 +49,19 @@ header{
     height: 10vh;
 }
 
+header>div{
+    display: flex;
+    width: calc(50% - 4em);
+}
+
+header>div.left>a:last-child{
+    margin-right: auto;
+}
+
+header>div.right>a:first-child{
+    margin-left: auto;
+}
+
 header>div>a{
     margin: 0 2em;
     text-decoration: none;
@@ -176,6 +189,10 @@ footer>div>p{
     }
 }
 
+.discoverStory{
+    border-bottom: .4vh solid white;
+}
+
 
 #homeContent{
     background-color: var(--black);
@@ -196,22 +213,25 @@ footer>div>p{
 
 .titleSection:before, .titleSection:after{
     content: "";
-    width: 100%;
     position: absolute;
-    width: 100%;
-    background-image: url("/images/ornament2.svg");
+    width: 40vh;
+    background-image: url(/images/ornament2.svg);
     background-size: cover;
     height: 100%;
-    left: 0 ;
+    left: 0;
+    background-position: center;
+    left: 50%;
 }
 
 .titleSection:before{
     top: -135%;
+    transform: translateX(-50%);
 }
 
 .titleSection:after{
     bottom: -120%;
     rotate: 180deg;
+    transform: translateX(50%);
 }
 
 .cards{
@@ -293,7 +313,7 @@ footer>div>p{
     padding: 2vh 1vh 0 1vh;
 }
 
-.buttonCard>a{
+.buttonCard>a, .viewAllHome, .createHome {
     display: flex;
     text-align: center;
     width: fit-content;
@@ -305,7 +325,17 @@ footer>div>p{
     padding: 1vh 3vh;
 }
 
-.buttonCard>a:hover{
+.buttonCard>a:hover, .viewAllHome:hover, .createHome:hover{
     background-color: white;
     color: black;
+}
+.createStory>p{
+    font-size: 1.25em;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 5vh auto;
+}
+
+.viewAllHome, .createHome{
+    margin-bottom: 10vh;
 }

@@ -11,7 +11,7 @@
     </div>
     <div id="homeContent">
         <div class="container">
-            <div class="discoverHistory">
+            <div class="discoverStory">
                 <h2 class="titleSection">Découvrir les histoires</h2>
                 <div class="cards">
                     <div class="card">
@@ -60,6 +60,12 @@
                         </div>
                     </div>
                 </div>
+                <a href="#" class="viewAllHome">Voir toutes les histoires</a>
+            </div>
+            <div class="createStory">
+                <h2 class="titleSection">Crée ton histoire</h2>
+                <p>Forgez des aventures épiques, créez des héros inoubliables, et partagez vos récits fantastiques avec la communauté. Prêt à donner vie à votre imagination dans l'univers de Donjon & Dragon ? Commencez votre aventure ici !</p>
+                <a href="#" class="createHome">Voir toutes les histoires</a>
             </div>
         </div>
     </div>

@@ -41,3 +41,9 @@ Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
 Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis');
 
 Route::get('/profil',[UserController::class, 'profil'])->middleware(['auth'])->name('profil');
+
+Route::get('/story/encours/{id}', [HistoireController::class, 'createChapter'])->name('createChapter');
+
+Route::post('/story/encours/{id}/storeChapitre',[HistoireController::class, 'storeChapitre'])->name('storeChapitre');
+
+Route::post('/story/encours/{id}/lienChapitre',[HistoireController::class, 'lienChapitre'])->name('lienChapitre');

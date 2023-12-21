@@ -698,13 +698,44 @@ footer>div>p{
 }
 
 
-/*  */
+/* Un chapitre */
+
+.titreChap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .titreChap h1 {
     font-family: 'Jomhuria', serif;
     font-weight: inherit;
     font-size: 16vh;
     margin: 0;
-    color: white;
+    color: #0E0E0E;
     text-align: center;
+}
+
+.titreChap img {
+    width: 50%;
+}
+
+.chapitre {
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.questions h3 {
+    color: white;
+}
+
+.questions a {
+    color: white;
+    text-decoration: none;
+}
+
+.ariane a {
+    color: #0E0E0E;
+    text-decoration: none;
 }

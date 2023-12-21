@@ -13,7 +13,6 @@
     <style>
         main {
             padding-top: 9rem;
-            background-color: #282828;
         }
     </style>
     <div class="titreChap">
@@ -21,18 +20,23 @@
         <img src="{{asset("images/ornament1.svg")}}" alt="">
     </div>
     <div class="chapitre" id="chapitre">
-        <p>{!!$parsedown->text($chapter->texte)!!}</p>
         @if (isset($chapter->media))
             <img src="{{$chapter->media}}" alt="Une image censé illustrer le chapitre">
         @endif
+        <p>{!!$parsedown->text($chapter->texte)!!}</p>
         @if (count($suivants)>0)
-            <h3>Questions</h3>
-            @foreach ($suivants as $suivant)
-                <div class="question">
-                    <p><a href="{{route('story.showChapter',['chapter_id' => $suivant->id, 'ariane' => $ariane] )}}">{{$suivant->pivot->reponse}}</a></p>
-                </div>
-            @endforeach
-            <p>@foreach($ariane as $key => $value)<a href="{{route('story.showChapter',['chapter_id' => $key, 'ariane' => $ariane])}}">{{$value}}</a>->@endforeach</p>
+            <div class="card questions">
+                <h3>Questions</h3>
+                <ul>
+                    @foreach ($suivants as $suivant)
+                        <li>
+                            <p><a href="{{route('story.showChapter',['chapter_id' => $suivant->id, 'ariane' => $ariane] )}}">{{$suivant->pivot->reponse}}</a></p>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <p class="ariane">@foreach($ariane as $key => $value)<a href="{{route('story.showChapter',['chapter_id' => $key, 'ariane' => $ariane])}}">{{$value}}</a>->@endforeach</p>
         @else
             <h3>Fin de Partie</h3>
         @endif

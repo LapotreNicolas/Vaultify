@@ -31,6 +31,10 @@
             <p class="ariane">@foreach($ariane as $key => $value)<a href="{{route('story.showChapter',['chapter_id' => $key, 'ariane' => $ariane])}}">{{$value}}</a>->@endforeach</p>
         @else
             <h3>Fin de Partie</h3>
+            <form action="{{route('story.endChapter', ['chapter_id' => $chapter->id, 'ariane' => $ariane, 'terminee'=>true])}}" method="post">
+                @csrf
+                <input type="submit" value="Terminer l'histoire">
+            </form>
         @endif
     </div>
 </x-layout>

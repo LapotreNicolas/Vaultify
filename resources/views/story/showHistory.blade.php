@@ -8,10 +8,13 @@
         </div>
     </div>
     <div class="bgBlack">
-        <div>pitch : {{$histoire->pitch}}</div>
-        <div>genre : {{$histoire->genre['label']}}</div>
         <div>
-            <img class="image" src="{{url('storage/'.$histoire->photo)}}" alt="image">
+            <h2>Description de l'histoire</h2>
+            <p>{{$histoire->pitch}}</p>
+        </div>
+        <p>Genre : {{$histoire->genre['label']}}</p>
+        <div>
+            <img class="image" src="{{asset($histoire->photo)}}" alt="image">
         </div>
         <a href="{{route('story.showChapter',['chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
         <div>

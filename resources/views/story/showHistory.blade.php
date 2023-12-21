@@ -19,7 +19,7 @@
             </div>
             <div class="genre">
                 <h2>Genre</h2>
-                <p>{{$histoire->genre['label']}}</p>
+                <a href="{{route('story.index', ['nom_genre' => $histoire->genre['label']])}}">{{$histoire->genre['label']}}</a>
             </div>
             <div class="img">
                 <img class="image" src="{{asset($histoire->photo)}}" alt="image">

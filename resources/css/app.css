@@ -293,11 +293,11 @@ footer>div>p{
     align-items: center;
     padding: 0 0 2vh 0;
     border-bottom: .2vh solid white;
+    height: 7vh;
 }
 
 .titleCard>img{
-    width: 8vh;
-    height: 100%;
+    width: 12vh;
     border-radius: 10em;
     aspect-ratio: 1/1;
     overflow: hidden;
@@ -305,6 +305,7 @@ footer>div>p{
 
 .titleCard>.headCard{
     margin-left: 2vh;
+    width: 100%;
 }
 
 .titleCard>.headCard>*{
@@ -320,6 +321,7 @@ footer>div>p{
 .contentCard{
     padding: 2vh 1vh;
     border-bottom: .2vh solid white;
+    height: 10vh;
 }
 
 .contentCard>p{
@@ -718,6 +720,13 @@ footer>div>p{
 
 .comments>div>p:first-child{
     font-weight: 300;
+    font-weight: 300;
+    align-items: center;
+    display: flex;
+}
+
+.comments>div>p:first-child>img{
+    margin-right: 1em;
 }
 
 /* equipe */
@@ -904,12 +913,52 @@ footer>div>p{
     min-height: 3px;
     position: relative;
     width: 50%;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding: 5vh;
     margin: 2vh;
     display: flex;
     flex-direction: column;
     align-items: start;
+}
+
+.card3>div{
+    width: 100%;
+    margin: 1em 0;
+}
+
+.card3>div>img{
+    width: 20vh;
+    margin: auto;
+    display: flex;
+}
+
+.card3>h2, .card3>h3{
+    text-align: center;
+    margin: auto;
+}
+
+.card3>ul>li>div>a{
+    color: white;
+}
+
+.card3 .status{
+    background-color: white;
+    border-radius: 2em;
+    padding: .5em 1em;
+    width: fit-content;
+    color: black;
+}
+
+.card3 .buttonStatus{
+    background: none;
+    border: .3vh solid white;
+    padding: .5em 1em;
+    color: white;
+    cursor: pointer;
+}
+
+.card3 .buttonStatus:hover{
+    color: black;
+    background-color: white;
 }
 
 /* .card2i{
@@ -938,6 +987,10 @@ footer>div>p{
 .card3:after{
     width: calc(100% + 2vh);
     height: calc(100% + 2vh);
+}
+
+.card3 .avatar{
+    margin-top: 1em;
 }
 
 /* CREATE CHAPITRE */

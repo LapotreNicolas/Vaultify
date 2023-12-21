@@ -28,7 +28,7 @@ Route::post('/story/{id}/upload', [HistoireController::class, 'upload'])->name('
 
 Route::get('/chapter/{chapter_id}', [HistoireController::class, 'showChapter'])->name('story.showChapter');
 
-Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe.index');
+Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
 
 Route::post('/comAdd',[HistoireController::class, 'storeAvis'])->name('storeAvis');
 

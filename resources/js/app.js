@@ -9,5 +9,5 @@ window.addEventListener("load", (event) => {
     setTimeout(() => {
         document.querySelector(".loader").remove();
         document.body.style.overflowY = 'visible';
-    },1000)
+    },500)
 });

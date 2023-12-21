@@ -18,8 +18,7 @@ messages d'erreurs dans la saisie du formulaire.
                 <h3>Création d'une histoire</h3>
                 <div>
                     <label for="titre"><strong>Titre de l'histoire : </strong></label>
-                    <input type="text" name="titre" id="titre"
-                           value="{{ old('titre') }}">
+                    <input type="text" name="titre" id="titre" value="{{ old('titre') }}" placeholder="Titre de l'histoire">
                 </div>
                 <div>
                     <label for="pitch-input"><strong>Pitch : </strong></label>

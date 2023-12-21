@@ -1,3 +1,6 @@
+@php
+    $parsedown = new Parsedown();
+@endphp
 <x-layout titre="Affiche une histoire">
     <div class="topImg">
         <img src="{{asset("images/topImg.jpg")}}" alt="topImg">

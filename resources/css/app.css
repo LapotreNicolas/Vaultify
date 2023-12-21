@@ -484,10 +484,47 @@ footer>div>p{
     background-color: var(--black);
     display: flex;
     flex-direction: column;
-    color: white;
 }
 
-/* SHOW HISTORY */
+.quatre{
+    font-family: 'Jomhuria', serif;
+    background-color: #0E0E0E;
+    height: 100vh;
+    color: white;
+    font-weight: inherit;
+}
+.quatre h1{
+    font-weight: inherit;
+}
+.quatre h6{
+    font-weight: inherit;
+}
+.quatre img{
+    width: 80px;
+}
+.quatrecontainer{
+    position: relative;
+}
+.arrow{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.erreur{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 6%;
+    font-size: 1rem;
+}
+.imgerreur{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.imgerreur img{
+    width: 120px;
+}/* SHOW HISTORY */
 
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;

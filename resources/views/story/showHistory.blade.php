@@ -23,5 +23,29 @@
                 </div>
             @endif
         </div>
+        <div>
+
+
+            <div>
+                @auth()
+                <form action="{{route('storeAvis')}}" method="post">
+                    @csrf
+                    <input name="h_id" value="{{$histoire->id}}" type="hidden">
+                    <label for="contenu"></label>
+                    <textarea name="contenu" id="contenu" rows="6" placeholder="Ecrivez un commentaire" required></textarea>
+                    <input type="submit" value="Envoyer">
+                </form>
+                @endauth
+            </div>
+
+
+            <!-- Commentaires ici-->
+            @foreach($commentaires as $com)
+                <div>
+                    <p>Par {{$com->user->name}} :</p>
+                    <p>{{$com->contenu}}</p>
+                </div>
+            @endforeach
+        </div>
     </div>
 </x-layout>

@@ -19,7 +19,7 @@
                             <img src="{{asset("images/icon.jpg")}}" alt="">
                             <div class="headCard">
                                 <h3>Titre de l'histoire</h3>
-                                <h4>Par user</h4>
+                                <a href="">Par user</a>
                             </div>
                         </div>
                         <div class="contentCard">
@@ -34,7 +34,7 @@
                             <img src="{{asset("images/icon.jpg")}}" alt="">
                             <div class="headCard">
                                 <h3>Titre de l'histoire</h3>
-                                <h4>Par user</h4>
+                                <a href="">Par user</a>
                             </div>
                         </div>
                         <div class="contentCard">
@@ -49,7 +49,7 @@
                             <img src="{{asset("images/icon.jpg")}}" alt="">
                             <div class="headCard">
                                 <h3>Titre de l'histoire</h3>
-                                <h4>Par user</h4>
+                                <a href="">Par user</a>
                             </div>
                         </div>
                         <div class="contentCard">

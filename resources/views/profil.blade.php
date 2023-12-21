@@ -12,8 +12,18 @@
                         <p>{{$his->pitch}}</p>
                         @if($his->active)
                             <p>active</p>
+                        <form action="{{ route('story.changeActive') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$his->id}}">
+                            <input type="submit" value="Désactiver">
+                        </form>
                         @else
                             <p>inactive</p>
+                            <form action="{{ route('story.changeActive') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$his->id}}">
+                                <input type="submit" value="Activer">
+                            </form>
                         @endif
                     </div>
                 </li>

@@ -18,11 +18,9 @@ use \App\Http\Controllers\WriterController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name("index");
+Route::get('/',[HistoireController::class, 'accueil'])->name("index");
 
-Route::get('/accueil', [HomeController::class, 'accueil'])->name('accueil');
+Route::get('/accueil', [HistoireController::class, 'accueil'])->name('accueil');
 
 Route::resource('story', HistoireController::class);
 

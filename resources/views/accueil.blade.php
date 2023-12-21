@@ -11,7 +11,62 @@
     </div>
     <div id="homeContent">
         <div class="container">
-
+            <div class="discoverStory">
+                <h2 class="titleSection">Découvrir les histoires</h2>
+                <div class="cards">
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="titleCard">
+                            <img src="{{asset("images/icon.jpg")}}" alt="">
+                            <div class="headCard">
+                                <h3>Titre de l'histoire</h3>
+                                <h4>Par user</h4>
+                            </div>
+                        </div>
+                        <div class="contentCard">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
+                        </div>
+                        <div class="buttonCard">
+                            <a href="#">Lire</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{route('story.index')}}" class="viewAllHome">Voir toutes les histoires</a>
+            </div>
+            <div class="createStory">
+                <h2 class="titleSection">Crée ton histoire</h2>
+                <p>Forgez des aventures épiques, créez des héros inoubliables, et partagez vos récits fantastiques avec la communauté. Prêt à donner vie à votre imagination dans l'univers de Donjon & Dragon ? Commencez votre aventure ici !</p>
+                <a href="{{route('story.create')}}" class="createHome">Créer mon histoire</a>
+            </div>
         </div>
     </div>
 </x-layout>

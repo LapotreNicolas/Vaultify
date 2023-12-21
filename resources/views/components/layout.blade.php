@@ -14,6 +14,9 @@
 </head>
 <x-header></x-header>
 <body>
+    <div class="loader">
+        <img src="{{assets("images/logo.svg")}}" alt="logo">
+    </div>
     <main class="main-container">
         {{$slot}}
     </main>

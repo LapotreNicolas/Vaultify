@@ -44,6 +44,8 @@
     
     
                 <div>
+                    <p><img src="{{Storage::url('images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
+                    <p>{{$com->contenu}}</p>
                     {{--Nombre de lecture terminer--}}
                     <div class="stats">
                         <p>

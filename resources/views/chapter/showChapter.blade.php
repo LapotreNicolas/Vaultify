@@ -2,16 +2,23 @@
     $parsedown = new Parsedown();
 @endphp
 <x-layout titre="{{ $chapter->titrecourt }}">
-    <div class="topImg">
+    {{-- <div class="topImg">
         <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
         <div>
             <img src="{{asset("images/ornament2.svg")}}" alt="">
             <h1>{{ $chapter->titrecourt }}</h1>
             <img src="{{asset("images/ornament2.svg")}}" alt="">
         </div>
-    </div>
-    <div class="bgBlack">
-        
+    </div> --}}
+    <style>
+        main {
+            padding-top: 9rem;
+            background-color: #282828;
+        }
+    </style>
+    <div class="titreChap">
+        <h1>{{ $chapter->titrecourt }}</h1>
+        <img src="{{asset("images/ornament1.svg")}}" alt="">
     </div>
     <div class="chapitre" id="chapitre">
         <p>{!!$parsedown->text($chapter->texte)!!}</p>

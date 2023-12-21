@@ -4,7 +4,7 @@
 <x-layout titre="{{ $chapter->titrecourt }}">
     <style>
         main {
-            padding-top: 9rem;
+            padding-top: 10rem;
         }
     </style>
     <div class="titreChap">

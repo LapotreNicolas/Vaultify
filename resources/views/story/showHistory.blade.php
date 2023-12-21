@@ -1,10 +1,20 @@
 <x-layout titre="Affiche une histoire">
-    <div>
-        <div>titre : {{$histoire->titre}}</div>
-        <div>pitch : {{$histoire->pitch}}</div>
-        <div>genre : {{$histoire->genre['label']}}</div>
+    <div class="topImg">
+        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
         <div>
-            <img class="image" src="{{url('storage/'.$histoire->photo)}}" alt="image">
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+            <h1>{{$histoire->titre}}</h1>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+        </div>
+    </div>
+    <div class="bgBlack">
+        <div>
+            <h2>Description de l'histoire</h2>
+            <p>{{$histoire->pitch}}</p>
+        </div>
+        <p>Genre : {{$histoire->genre['label']}}</p>
+        <div>
+            <img class="image" src="{{asset($histoire->photo)}}" alt="image">
         </div>
         <a href="{{route('story.showChapter',['chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
         <div>

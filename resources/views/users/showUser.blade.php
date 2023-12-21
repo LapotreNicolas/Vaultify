@@ -3,7 +3,7 @@
         <ul>
             <li>{{$user->name}}</li>
             <li>{{$user->email}}</li>
-            <li>{{count($finies)}}</li>
+            <li>{{$finies}}</li>
         </ul>
         @foreach($creees as $histoire)
             <ul>
@@ -11,7 +11,7 @@
                     <li>{{$histoire->titre}}</li>
                 </a>
                 <li>{{$histoire->pitch}}</li>
-                <li><img src="{{Storage::url($histoire->photo)}}"></li>
+                <li><img src="{{Storage::url($histoire->photo)}}" alt="photo"></li>
                 <li></li>
             </ul>
         @endforeach

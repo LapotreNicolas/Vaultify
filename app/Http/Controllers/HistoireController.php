@@ -162,9 +162,11 @@ class HistoireController extends Controller
 
     public function showChapter(Request $request, $chapter_id)
     {
+        $ariane = $request->get('ariane',default: []);
         $chapitre = Chapitre::find($chapter_id);
         $suivants = $chapitre->suivants;
-        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants]);
+        $ariane[$chapter_id] = $chapitre->titrecourt;
+        return view('chapter.showChapter', ['chapter' => $chapitre, 'suivants' => $suivants, 'ariane' => $ariane]);
     }
 
     function storeAvis(Request $request)

@@ -8,63 +8,70 @@
         </div>
     </div>
     <div class="bgBlack">
-        <div>
-            <h2>Description de l'histoire</h2>
-            <p>{{$histoire->pitch}}</p>
-        </div>
-        <p>Genre : {{$histoire->genre['label']}}</p>
-        <div>
-            <img class="image" src="{{asset($histoire->photo)}}" alt="image">
-        </div>
-        <a href="{{route('story.showChapter',['chapter_id' => $id_chapitre])}}"><button>Commencer l'Histoire</button></a>
-        <div>
-            @if($action == 'delete')
-                <form action="{{route('story.destroy',$histoire->id)}}" method="POST">
-                    @csrf
-                    @method('DELETE')
+        <div class="container showHistory">
+            <div class="desc">
+                <h2>Description de l'histoire</h2>
+                <p>{{$histoire->pitch}}</p>
+            </div>
+            <div class="genre">
+                <h2>Genre</h2>
+                <p>{{$histoire->genre['label']}}</p>
+            </div>
+            <div class="img">
+                <img class="image" src="{{asset($histoire->photo)}}" alt="image">
+            </div>
+            <a href="{{route('story.showChapter',['chapter_id' => $id_chapitre])}}" class="start">Commencer l'Histoire</a>
+            <div>
+                @if($action == 'delete')
+                    <form action="{{route('story.destroy',$histoire->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div>
+                            <button type="submit" name="delete" value="valide">Valide</button>
+                            <button type="submit" name="delete" value="annule">Annule</button>
+                        </div>
+                    </form>
+                @else
                     <div>
-                        <button type="submit" name="delete" value="valide">Valide</button>
-                        <button type="submit" name="delete" value="annule">Annule</button>
+                        <a href="{{route('story.index')}}" class="list">Retour à la liste</a>
                     </div>
-                </form>
-            @else
-                <div>
-                    <a href="{{route('story.index')}}">Retour à la liste</a>
-                </div>
-            @endif
-        </div>
-        <div>
-
-
-            <div>
-                @auth()
-                <form action="{{route('storeAvis')}}" method="post">
-                    @csrf
-                    <input name="h_id" value="{{$histoire->id}}" type="hidden">
-                    <label for="contenu"></label>
-                    <textarea name="contenu" id="contenu" rows="6" placeholder="Ecrivez un commentaire" required></textarea>
-                    <input type="submit" value="Envoyer">
-                </form>
-                @endauth
+                @endif
             </div>
-
-            {{--Nombre de lecture terminer--}}
             <div>
-                <p>
-                    total terminer : {{$terminer}}
-                </p>
-                <p>
-                    Nombre d'avis positifs : {{$avis}}
-                </p>
-            </div>
-
-            <!-- Commentaires ici-->
-            @foreach($commentaires as $com)
+    
+    
                 <div>
-                    <p>Par {{$com->user->name}} :</p>
-                    <p>{{$com->contenu}}</p>
+                    {{--Nombre de lecture terminer--}}
+                    <div class="stats">
+                        <p>
+                            Total de lectures terminées : <span>{{$terminer}}</span>
+                        </p>
+                        <p>
+                            Nombre d'avis positifs : <span>{{$avis}}</span>
+                        </p>
+                    </div>
+                    @auth()
+                    <form action="{{route('storeAvis')}}" method="post" class="card commentForm">
+                        @csrf
+                        <input name="h_id" value="{{$histoire->id}}" type="hidden">
+                        <label for="contenu"></label>
+                        <textarea name="contenu" id="contenu" rows="6" placeholder="Ecrivez un commentaire" required></textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                    @endauth
                 </div>
-            @endforeach
+    
+    
+                <!-- Commentaires ici-->
+                <div class="comments">
+                    @foreach($commentaires as $com)
+                        <div>
+                            <p>Par {{$com->user->name}} :</p>
+                            <p>{{$com->contenu}}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </x-layout>

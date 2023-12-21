@@ -29,6 +29,7 @@ main {
 .container{
     max-width: 1100px;
     margin: 0 auto;
+    width: 100%;
 }
 
 /* header */
@@ -89,7 +90,7 @@ footer:before{
     background-position: center;
     left: 50%;
     transform: translateX(-50%);
-    top: -2.6vh;
+    top: -2.4vh;
 }
 
 footer>div{
@@ -334,7 +335,7 @@ footer>div>p{
     padding: 2vh 1vh 0 1vh;
 }
 
-.buttonCard>a, .viewAllHome, .createHome {
+.buttonCard>a, .viewAllHome, .createHome, .showHistory>.start, .showHistory .list {
     display: flex;
     text-align: center;
     width: fit-content;
@@ -346,7 +347,7 @@ footer>div>p{
     padding: 1vh 3vh;
 }
 
-.buttonCard>a:hover, .viewAllHome:hover, .createHome:hover{
+.buttonCard>a:hover, .viewAllHome:hover, .createHome:hover, .showHistory>.start:hover, .showHistory .list:hover{
     background-color: white;
     color: black;
 }
@@ -486,4 +487,106 @@ footer>div>p{
     color: white;
 }
 
+/* SHOW HISTORY */
 
+.showHistory>.desc>h2, .showHistory>.genre>h2{
+    font-size: 5vh;
+    text-align: center;
+    font-family: Matura MT Script Capitals;
+    font-weight: inherit;
+}
+
+.showHistory>.desc>p, .showHistory>.genre>p{
+    font-size: 2vh;
+    line-height: 3vh;
+    text-align: center;
+}
+
+.showHistory>.desc>p:after{
+    content: "";
+    display: flex;
+    width: 70%;
+    height: .3vh;
+    background-color: white;
+    margin: 5vh auto;
+}
+
+.showHistory>.genre>p{
+    color: var(--gold);
+    font-size: 5vh;
+}
+
+.showHistory>.img>img{
+    margin: 0 auto;
+    display: flex;
+    width: auto;
+    max-height: 40vh;
+}
+
+.commentForm{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 5vh auto 0 auto;
+}
+
+.commentForm>textarea{
+    width: 70vh;
+    height: 5vh;
+    margin-bottom: 2vh;
+    padding: 2vh;
+    border: none;
+}
+
+.commentForm>textarea:focus{
+    outline: none;
+}
+
+.commentForm>input{
+    border: none;
+    padding: 1em;
+    width: fit-content;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    background-color: white;
+}
+
+.showHistory>.start{
+    margin: 3vh auto;
+}
+
+.showHistory .list{
+    font-size: 2vh;
+}
+
+.showHistory .stats{
+    text-align: center;
+    margin: 4vh;
+}
+
+.showHistory .stats>p>span{
+    color: gold;
+    font-weight: bold;
+    font-size: 2.5vh;
+}
+
+.comments{
+    margin-top: 3vh;
+}
+
+.comments>div{
+    background-color: var(--gray);
+    padding: 1vh 2vh;
+    margin: 2vh 0;
+    border-radius: 2vh;
+    font-weight: 500;
+}
+
+.comments>div>p{
+    margin: 1vh 0;
+}
+
+.comments>div>p:first-child{
+    font-weight: 300;
+}

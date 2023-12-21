@@ -14,51 +14,23 @@
             <div class="discoverStory">
                 <h2 class="titleSection">Découvrir les histoires</h2>
                 <div class="cards">
-                    <div class="card">
-                        <div class="titleCard">
-                            <img src="{{asset("images/icon.jpg")}}" alt="">
-                            <div class="headCard">
-                                <h3>Titre de l'histoire</h3>
-                                <a href="">Par user</a>
+                    @foreach($histoires as $histoire)
+                        <div class="card">
+                            <div class="titleCard">
+                                <img src="{{Storage::url('images/'.$histoire->user->avatar)}}" alt="avatar">
+                                <div class="headCard">
+                                    <h3>{{$histoire->titre}}</h3>
+                                    <a href="{{route('users.show',$histoire->user->id)}}">Par {{$histoire->user->name}}</a>
+                                </div>
+                            </div>
+                            <div class="contentCard">
+                                <p>{{$histoire->pitch}}</p>
+                            </div>
+                            <div class="buttonCard">
+                                <a href="{{route('story.show', [$histoire->id, 'action' => 'show'])}}">Lire</a>
                             </div>
                         </div>
-                        <div class="contentCard">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
-                        </div>
-                        <div class="buttonCard">
-                            <a href="#">Lire</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="titleCard">
-                            <img src="{{asset("images/icon.jpg")}}" alt="">
-                            <div class="headCard">
-                                <h3>Titre de l'histoire</h3>
-                                <a href="">Par user</a>
-                            </div>
-                        </div>
-                        <div class="contentCard">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
-                        </div>
-                        <div class="buttonCard">
-                            <a href="#">Lire</a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="titleCard">
-                            <img src="{{asset("images/icon.jpg")}}" alt="">
-                            <div class="headCard">
-                                <h3>Titre de l'histoire</h3>
-                                <a href="">Par user</a>
-                            </div>
-                        </div>
-                        <div class="contentCard">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec odio quis risus pellentesque rutrum. Fusce sagittis ante eu quam ullamcorper, at rut</p>
-                        </div>
-                        <div class="buttonCard">
-                            <a href="#">Lire</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <a href="{{route('story.index')}}" class="viewAllHome">Voir toutes les histoires</a>
             </div>

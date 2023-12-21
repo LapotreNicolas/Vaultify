@@ -193,4 +193,10 @@ class HistoireController extends Controller
 
         return redirect()->route('profil');
     }
+
+    function accueil()
+    {
+        $histoires = Histoire::inRandomOrder()->take(3)->get();
+        return view('accueil',['titre' => 'Accueil','histoires' => $histoires]);
+    }
 }

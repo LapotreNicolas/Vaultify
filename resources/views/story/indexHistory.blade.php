@@ -1,22 +1,22 @@
 <x-layout>
-    <div>
+    <div class="container">
         <div>
-            <h1>Titre</h1>
+            <h1>Toutes les histoires</h1>
         </div>
         @if(!empty($histoires))
             {{--LES COMMENTAIRES SONT POUR LE FILTRAGE MAIS C'EST PAS LE BON--}}
             <h4>Filtrage par genre</h4>
-            <form action="{{route('story.index')}}" method="get">
+            <form action="{{route('story.index')}}" method="get" class="filtre">
                 <select name="nom_genre">
                     <option value="All" @if($genre == 'All') selected @endif>-- Tout genre --</option>
                     @foreach($genres_possibles as $gp)
                         <option value="{{$gp}}" @if($genre == $gp) selected @endif>{{$gp}}</option>
                     @endforeach
                 </select>
-                <input type="submit" value="OK">
+                <input type="submit" value="OK" class="test">
             </form>
             <div>
-                <div class="cards">
+                <div class="cards container">
                 @foreach($histoires as $histoire)
                     @if ($histoire->active>0)
 

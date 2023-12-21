@@ -5,6 +5,7 @@ html {
     min-height: 100%;
     scroll-behavior: smooth;
 }
+
 body {
     /* Margin bottom by footer height */
     display: flex;
@@ -381,3 +382,44 @@ footer>div>p{
         rotate: 360deg;
     }
 }
+
+/* Tous les albums */
+
+.filtre {
+    margin: 2rem 2rem;
+    position: relative;
+}
+
+.filtre select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #0E0E0E;
+    background-color: #E2B356;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+}
+
+.filtre select:focus {
+    border-radius: 10px 0 0 0;
+}
+
+.filtre select option {
+    border-radius: 0 0 10px 10px;
+}
+
+.filtre input[type="submit"] {
+    appearance: none;
+    border: none;
+    font: inherit;
+    background-color: #dea83a;
+    padding: 1rem;
+    cursor: pointer;
+    color: #0E0E0E;
+    border-radius: 0 10px 10px 0;
+    position: absolute;
+}
+

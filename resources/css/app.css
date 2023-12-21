@@ -16,6 +16,7 @@ body {
     --gray: #282828;
     --black: #0E0E0E;
     --gold: #E2B356;
+    --white: #e6e6e6;
     --padding-header: 2.5vh;
     overflow-y: hidden;
 }
@@ -399,13 +400,7 @@ footer>div>p{
 
 /* Login */
 
-.log {
-    padding: 0.20em 2em 2em 2em; /* haut; droite; bas; gauche */
-    margin-top: 12rem;
-    height: 100%;
-}
-
-form.login {
+.login, .createHistory>.card {
     max-width: fit-content;
     margin: auto;
     position: absolute;
@@ -414,30 +409,63 @@ form.login {
     transform: translate(-50%, -50%);
 }
 
-.log h3 {
+.login>form>h3, .createHistory>.card>form>h3 {
     font-family: 'Jomhuria', serif;
     color: white;
     text-align: center;
-    font-size: 40pt;
+    font-size: 10vh;
     margin: 1rem;
+    font-weight: inherit;
 }
 
 .logimg {
-    width: 100%;
-    object-fit: cover;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: white;
 }
 
-.log input {
-    appearance: none;
+.logimg>img{
+    height: 100%;
+    filter: blur(5px);
+}
+
+.logimg>.login>form{
+    display: flex;
+    flex-direction: column;
+}
+
+.login input, .createHistory>.card>form>div>input {
     background-color: #E2B356;
     border: none;
     border-radius: 5px;
     margin: 0.5rem;
     padding: 0.3rem;
+    align-items: center;
+    font-size: 3vh;
+    margin: 1vh 0;
 }
 
-.log input[type="submit"] {
+.remember, .bottomLog{
+    display: flex;
+    align-items: center;
+}
+
+.remember>p, .bottomLog>p{
+    margin-right: 1vh;
+}
+
+.bottomLog>a{
+    color: white;
+}
+
+.login input[type="submit"] {
     cursor: pointer;
+    margin-top: 1em;
+}
+
+.login input:focus{
+    outline: none;
 }
 
 /* Tous les albums */
@@ -568,7 +596,9 @@ form.login {
 }
 .imgerreur img{
     width: 120px;
-}/* SHOW HISTORY */
+}
+
+/* SHOW HISTORY */
 
 .showHistory>.desc>h2, .showHistory>.genre>h2{
     font-size: 5vh;
@@ -670,4 +700,97 @@ form.login {
 
 .comments>div>p:first-child{
     font-weight: 300;
+}
+
+/* equipe */
+
+.equipe{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.h3mem{
+    font-size: 7vh;
+}
+
+.cards2{
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    margin-bottom: 10vh;
+    color: white;
+}
+
+.equipe>ul{
+    width: 100%;
+}
+
+.card2{
+    background-color: var(--gray);
+    min-height: 3px;
+    position: relative;
+    width: 100%;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin: 2vh;
+}
+
+.card2i{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card2:before, .card2:after{
+    content: "";
+    border: .25vh solid var(--gold);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.card2:before{
+    width: calc(100% - 2vh);
+    height: calc(100% - 2vh);
+}
+
+.card2:after{
+    width: calc(100% + 2vh);
+    height: calc(100% + 2vh);
+}
+
+.h3name{
+    font-size: 4vh;
+}
+
+.leli{
+    font-size: 2vh;
+}
+
+/*  */
+
+.titreChap h1 {
+    font-family: 'Jomhuria', serif;
+    font-weight: inherit;
+    font-size: 16vh;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+/* CREATE HISTORY */
+
+.createHistory{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.createHistory>.card{
+    color: white;
 }

@@ -42,7 +42,7 @@
                 </ul>
                 <h4>Autres informations : {{$equipe['autres']}}</h4>
                 <img src="{{asset('storage/images/'.$equipe['logo'])}}" alt="logo">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            <iframe style="margin-bottom: 75px" width="560" height="315" src="https://www.youtube.com/embed/xmXYsTUOKyQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </x-layout>

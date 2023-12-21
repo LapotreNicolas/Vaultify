@@ -1,6 +1,7 @@
 <x-layout titre="Profil">
     <h2>Bienvenue, {{Auth::user()->name}}</h2>
     <div>{{Auth::user()->email}}</div>
+    <div> <img src="{{Storage::url("images/".Auth::user()->avatar)}}" alt="avatar"> </div>
 
     <ul>
         @foreach($histoires as $his)
@@ -28,5 +29,13 @@
                     </div>
                 </li>
         @endforeach
+            <form action="{{route('users.upload')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div>
+                    <label for="doc">avatar : </label>
+                    <input type="file" name="document" id="doc">
+                </div>
+                <input type="submit" value="Télécharger" name="submit">
+            </form>
     </ul>
 </x-layout>

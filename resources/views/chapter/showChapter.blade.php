@@ -2,8 +2,18 @@
     $parsedown = new Parsedown();
 @endphp
 <x-layout titre="{{ $chapter->titrecourt }}">
+    <div class="topImg">
+        <img src="{{asset("images/topImg.jpg")}}" alt="topImg">
+        <div>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+            <h1>{{ $chapter->titrecourt }}</h1>
+            <img src="{{asset("images/ornament2.svg")}}" alt="">
+        </div>
+    </div>
+    <div class="bgBlack">
+        
+    </div>
     <div class="chapitre" id="chapitre">
-        <h1>{{ $chapter->titrecourt }}</h1>
         <p>{!!$parsedown->text($chapter->texte)!!}</p>
         @if (isset($chapter->media))
             {{--<img src="{{ Storage::url($chapter->media) }}" alt="Une image censé illustrer le chapitre">--}}

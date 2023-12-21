@@ -405,7 +405,7 @@ footer>div>p{
     height: 100%;
 }
 
-form.card {
+form.login {
     max-width: fit-content;
     margin: auto;
     position: absolute;

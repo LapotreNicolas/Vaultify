@@ -1,7 +1,7 @@
 <x-layout>
     <section class="log">
         <img src="{{asset("images/Village.jpg")}}" alt="">
-        <form action="{{route("login")}}" method="post" class="card">
+        <form action="{{route("login")}}" method="post" class="card login">
             @csrf
             <h3>Connexion</h3>
             <input type="email" name="email" required placeholder="Email" /><br />

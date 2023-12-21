@@ -41,11 +41,9 @@
                 @endif
             </div>
             <div>
-    
-    
+
+
                 <div>
-                    <p><img src="{{Storage::url('images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
-                    <p>{{$com->contenu}}</p>
                     {{--Nombre de lecture terminer--}}
                     <div class="stats">
                         <p>
@@ -71,7 +69,7 @@
                 <div class="comments">
                     @foreach($commentaires as $com)
                         <div>
-                            <p>Par {{$com->user->name}} :</p>
+                            <p><img src="{{Storage::url('images/'.$com->user->avatar)}}" alt="avatar"> Par {{$com->user->name}} :</p>
                             <p>{{$com->contenu}}</p>
                         </div>
                     @endforeach
